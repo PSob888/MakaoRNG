@@ -31,6 +31,8 @@ public class HelloController extends HelloApplication{
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage)newGame.getScene().getWindow();
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
         Tura=0;
     }

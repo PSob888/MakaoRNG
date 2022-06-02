@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.makaotest.IngameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.makaotest.IngameController">
    <children>
-      <AnchorPane fx:id="player1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css">
+      <AnchorPane fx:id="player1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css" AnchorPane.leftAnchor="0.0">
          <children>
             <ImageView fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="14.0">
                <image>
@@ -33,7 +33,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <ImageView fx:id="polozona" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0">
+            <ImageView fx:id="polozona" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0" styleClass="srodek">
                <image>
                   <Image url="@Karty/8w.png" />
                </image>
@@ -183,7 +183,7 @@
             <AnchorPane fx:id="p1invisible" layoutX="1.0" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="player2" layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css">
+      <AnchorPane fx:id="player2" layoutX="800.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css" AnchorPane.rightAnchor="0.0">
          <children>
             <ImageView fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="14.0">
                <image>
@@ -206,7 +206,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <ImageView fx:id="polozona2" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0">
+            <ImageView fx:id="polozona2" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0" styleClass="srodek">
                <image>
                   <Image url="@Karty/8w.png" />
                </image>
@@ -314,7 +314,7 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <AnchorPane fx:id="p2invisible" layoutX="1.0" layoutY="-2.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" />
+            <AnchorPane fx:id="p2invisible" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" />
          </children>
       </AnchorPane>
    </children>
