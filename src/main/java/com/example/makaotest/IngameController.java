@@ -8,11 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -21,6 +23,10 @@ import java.util.Random;
 
 public class IngameController extends HelloApplication{
 
+    @FXML
+    private Text p1enemyilosc;
+    @FXML
+    private Text p2enemyilosc;
     @FXML
     private AnchorPane p1invisible;
     @FXML
@@ -89,10 +95,31 @@ public class IngameController extends HelloApplication{
     private ImageView p215;
     @FXML
     private ImageView p216;
+    @FXML
+    private Button p1dobierz;
+    @FXML
+    private Button p2dobierz;
 
     @FXML
     protected void initialize(){
         kartTest();
+    }
+
+    //@FXML
+//    protected void doGoryKarta(ActionEvent event){
+//        ImageView karta = event.getSource();
+//    }
+
+    @FXML
+    protected void onDobierz1Click(){
+        p2invisible.setOpacity(0);
+        p1invisible.setOpacity(100);
+    }
+
+    @FXML
+    protected void onDobierz2Click(){
+        p2invisible.setOpacity(100);
+        p1invisible.setOpacity(0);
     }
 
     @FXML
@@ -101,6 +128,10 @@ public class IngameController extends HelloApplication{
         p1invisible.setOpacity(0);
         cardsStart();
         cardsSetImages();
+        int enemy1=cardsP2.size();
+        int enemy2=cardsP1.size();
+        p1enemyilosc.setText(Integer.toString(enemy1));
+        p2enemyilosc.setText(Integer.toString(enemy2));
     }
 
     void cardsStart(){ //dodac krole itd
@@ -163,20 +194,24 @@ public class IngameController extends HelloApplication{
         System.out.println("p2");
         for(int i=0;i<5;i++)
         {
-            String s=new String();
-            int los=rand.nextInt(4);
-            if(los==0)
-                s= "s";
-            if(los==1)
-                s="w";
-            if(los==2)
-                s="d";
-            if(los==3)
-                s="z";
-            int los2= rand.nextInt(2,11);
-            String a=Integer.toString(los2);
-            System.out.println(s+' '+a);
-            Card karta=new Card(s,a);
+            Card karta;
+            do
+            {
+                String s = new String();
+                int los = rand.nextInt(4);
+                if (los == 0)
+                    s = "s";
+                if (los == 1)
+                    s = "w";
+                if (los == 2)
+                    s = "d";
+                if (los == 3)
+                    s = "z";
+                int los2 = rand.nextInt(2, 11);
+                String a = Integer.toString(los2);
+                karta = new Card(s, a);
+            }while(isInHandP1(karta));
+            System.out.println(karta.getSymbol() + ' ' + karta.getNumber());
             cardsP2.add(karta);
         }
     }
@@ -191,6 +226,7 @@ public class IngameController extends HelloApplication{
             System.out.println(s);
             Image image = new Image(file.toURI().toString());
             p116.setImage(image);
+
         }
         if(cardsP1.size()>=15)
         {
@@ -537,5 +573,23 @@ public class IngameController extends HelloApplication{
         }
 
 
+    }
+
+    public boolean isInHandP1(Card c){
+        for(int i=0;i<cardsP1.size();i++)
+        {
+            if(c.isEqual(cardsP1.get(i)))
+                return true;
+        }
+        return false;
+    }
+
+    public boolean isInHandP2(Card c){
+        for(int i=0;i<cardsP1.size();i++)
+        {
+            if(c.isEqual(cardsP1.get(i)))
+                return true;
+        }
+        return false;
     }
 }
