@@ -65,66 +65,105 @@
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p12" fitHeight="111.0" fitWidth="79.0" layoutX="114.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p13" fitHeight="111.0" fitWidth="79.0" layoutX="153.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p14" fitHeight="111.0" fitWidth="79.0" layoutX="193.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p15" fitHeight="111.0" fitWidth="79.0" layoutX="233.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p16" fitHeight="111.0" fitWidth="79.0" layoutX="268.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p17" fitHeight="111.0" fitWidth="79.0" layoutX="308.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p18" fitHeight="111.0" fitWidth="79.0" layoutX="348.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p19" fitHeight="111.0" fitWidth="79.0" layoutX="388.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p110" fitHeight="111.0" fitWidth="79.0" layoutX="427.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p111" fitHeight="111.0" fitWidth="79.0" layoutX="462.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p112" fitHeight="111.0" fitWidth="79.0" layoutX="502.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p113" fitHeight="111.0" fitWidth="79.0" layoutX="542.0" layoutY="375.0" styleClass="karta">
                <effect>
                   <DropShadow />
                </effect>
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
             </ImageView>
             <ImageView fx:id="p114" fitHeight="111.0" fitWidth="79.0" layoutX="582.0" layoutY="375.0" styleClass="karta">
                <effect>

@@ -105,27 +105,22 @@ public class IngameController extends HelloApplication{
         kartTest();
     }
 
-    //@FXML
-//    protected void doGoryKarta(ActionEvent event){
-//        ImageView karta = event.getSource();
-//    }
-
     @FXML
     protected void onDobierz1Click(){
-        p2invisible.setOpacity(0);
-        p1invisible.setOpacity(100);
+        p2invisible.setVisible(false);
+        p1invisible.setVisible(true);
     }
 
     @FXML
     protected void onDobierz2Click(){
-        p2invisible.setOpacity(100);
-        p1invisible.setOpacity(0);
+        p2invisible.setVisible(true);
+        p1invisible.setVisible(false);
     }
 
     @FXML
     protected void kartTest(){
-        p2invisible.setOpacity(100);
-        p1invisible.setOpacity(0);
+        p2invisible.setVisible(true);
+        p1invisible.setVisible(false);
         cardsStart();
         cardsSetImages();
         int enemy1=cardsP2.size();
@@ -219,359 +214,359 @@ public class IngameController extends HelloApplication{
         if(cardsP1.size()>=16)
         {
             p116.setVisible(true);
-            String symbol=cardsP1.get(15).getSymbol();
-            String number=cardsP1.get(15).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p116.setImage(image);
+//            String symbol=cardsP1.get(15).getSymbol();
+//            String number=cardsP1.get(15).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+////            p116.setImage(image);
+//            p116.setStyle("-fx-background-image: "+s+";");
 
         }
         if(cardsP1.size()>=15)
         {
             p115.setVisible(true);
-            String symbol=cardsP1.get(14).getSymbol();
-            String number=cardsP1.get(14).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p115.setImage(image);
+//            String symbol=cardsP1.get(14).getSymbol();
+//            String number=cardsP1.get(14).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p115.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=14)
         {
             p114.setVisible(true);
-            String symbol=cardsP1.get(13).getSymbol();
-            String number=cardsP1.get(13).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p114.setImage(image);
+//            String symbol=cardsP1.get(13).getSymbol();
+//            String number=cardsP1.get(13).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p114.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=13)
         {
             p113.setVisible(true);
-            String symbol=cardsP1.get(12).getSymbol();
-            String number=cardsP1.get(12).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p113.setImage(image);
+//            String symbol=cardsP1.get(12).getSymbol();
+//            String number=cardsP1.get(12).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p113.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=12)
         {
             p112.setVisible(true);
-            String symbol=cardsP1.get(11).getSymbol();
-            String number=cardsP1.get(11).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p112.setImage(image);
+//            String symbol=cardsP1.get(11).getSymbol();
+//            String number=cardsP1.get(11).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p112.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=11)
         {
             p111.setVisible(true);
-            String symbol=cardsP1.get(10).getSymbol();
-            String number=cardsP1.get(10).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p111.setImage(image);
+//            String symbol=cardsP1.get(10).getSymbol();
+//            String number=cardsP1.get(10).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p111.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=10)
         {
             p110.setVisible(true);
-            String symbol=cardsP1.get(9).getSymbol();
-            String number=cardsP1.get(9).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p110.setImage(image);
+//            String symbol=cardsP1.get(9).getSymbol();
+//            String number=cardsP1.get(9).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p110.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=9)
         {
             p19.setVisible(true);
-            String symbol=cardsP1.get(8).getSymbol();
-            String number=cardsP1.get(8).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p19.setImage(image);
+//            String symbol=cardsP1.get(8).getSymbol();
+//            String number=cardsP1.get(8).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p19.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=8)
         {
             p18.setVisible(true);
-            String symbol=cardsP1.get(7).getSymbol();
-            String number=cardsP1.get(7).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p18.setImage(image);
+//            String symbol=cardsP1.get(7).getSymbol();
+//            String number=cardsP1.get(7).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p18.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=7)
         {
             p17.setVisible(true);
-            String symbol=cardsP1.get(6).getSymbol();
-            String number=cardsP1.get(6).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p17.setImage(image);
+//            String symbol=cardsP1.get(6).getSymbol();
+//            String number=cardsP1.get(6).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p17.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=6)
         {
             p16.setVisible(true);
-            String symbol=cardsP1.get(5).getSymbol();
-            String number=cardsP1.get(5).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p16.setImage(image);
+//            String symbol=cardsP1.get(5).getSymbol();
+//            String number=cardsP1.get(5).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p16.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=5)
         {
             p15.setVisible(true);
-            String symbol=cardsP1.get(4).getSymbol();
-            String number=cardsP1.get(4).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p15.setImage(image);
+//            String symbol=cardsP1.get(4).getSymbol();
+//            String number=cardsP1.get(4).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p15.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=4)
         {
             p14.setVisible(true);
-            String symbol=cardsP1.get(3).getSymbol();
-            String number=cardsP1.get(3).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p14.setImage(image);
+//            String symbol=cardsP1.get(3).getSymbol();
+//            String number=cardsP1.get(3).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p14.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=3)
         {
             p13.setVisible(true);
-            String symbol=cardsP1.get(2).getSymbol();
-            String number=cardsP1.get(2).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p12.setImage(image);
+//            String symbol=cardsP1.get(2).getSymbol();
+//            String number=cardsP1.get(2).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p12.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=2)
         {
             p12.setVisible(true);
-            String symbol=cardsP1.get(1).getSymbol();
-            String number=cardsP1.get(1).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p12.setImage(image);
+//            String symbol=cardsP1.get(1).getSymbol();
+//            String number=cardsP1.get(1).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p12.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=1)
         {
             p11.setVisible(true);
-            String symbol=cardsP1.get(0).getSymbol();
-            String number=cardsP1.get(0).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p11.setImage(image);
+//            String symbol=cardsP1.get(0).getSymbol();
+//            String number=cardsP1.get(0).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p11.setStyle("-fx-background-image: "+s+";");
         }
 
         //-------------------------------------------------------------------------------------------------
         if(cardsP2.size()>=16)
         {
             p216.setVisible(true);
-            String symbol=cardsP2.get(15).getSymbol();
-            String number=cardsP2.get(15).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p216.setImage(image);
+//            String symbol=cardsP2.get(15).getSymbol();
+//            String number=cardsP2.get(15).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p216.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=15)
         {
             p215.setVisible(true);
-            String symbol=cardsP2.get(14).getSymbol();
-            String number=cardsP2.get(14).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p215.setImage(image);
+//            String symbol=cardsP2.get(14).getSymbol();
+//            String number=cardsP2.get(14).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p215.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=14)
         {
             p214.setVisible(true);
-            String symbol=cardsP2.get(13).getSymbol();
-            String number=cardsP2.get(13).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p214.setImage(image);
+//            String symbol=cardsP2.get(13).getSymbol();
+//            String number=cardsP2.get(13).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p214.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=13)
         {
             p213.setVisible(true);
-            String symbol=cardsP2.get(12).getSymbol();
-            String number=cardsP2.get(12).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p213.setImage(image);
+//            String symbol=cardsP2.get(12).getSymbol();
+//            String number=cardsP2.get(12).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p213.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=12)
         {
             p212.setVisible(true);
-            String symbol=cardsP2.get(11).getSymbol();
-            String number=cardsP2.get(11).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p212.setImage(image);
+//            String symbol=cardsP2.get(11).getSymbol();
+//            String number=cardsP2.get(11).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p212.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=11)
         {
             p211.setVisible(true);
-            String symbol=cardsP2.get(10).getSymbol();
-            String number=cardsP2.get(10).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p211.setImage(image);
+//            String symbol=cardsP2.get(10).getSymbol();
+//            String number=cardsP2.get(10).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p211.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=10)
         {
             p210.setVisible(true);
-            String symbol=cardsP2.get(9).getSymbol();
-            String number=cardsP2.get(9).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p210.setImage(image);
+//            String symbol=cardsP2.get(9).getSymbol();
+//            String number=cardsP2.get(9).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p210.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=9)
         {
             p29.setVisible(true);
-            String symbol=cardsP2.get(8).getSymbol();
-            String number=cardsP2.get(8).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p29.setImage(image);
+//            String symbol=cardsP2.get(8).getSymbol();
+//            String number=cardsP2.get(8).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p29.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=8)
         {
             p28.setVisible(true);
-            String symbol=cardsP2.get(7).getSymbol();
-            String number=cardsP2.get(7).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p28.setImage(image);
+//            String symbol=cardsP2.get(7).getSymbol();
+//            String number=cardsP2.get(7).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p28.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=7)
         {
             p27.setVisible(true);
-            String symbol=cardsP2.get(6).getSymbol();
-            String number=cardsP2.get(6).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p27.setImage(image);
+//            String symbol=cardsP2.get(6).getSymbol();
+//            String number=cardsP2.get(6).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p27.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP1.size()>=6)
         {
             p26.setVisible(true);
-            String symbol=cardsP2.get(5).getSymbol();
-            String number=cardsP2.get(5).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p26.setImage(image);
+//            String symbol=cardsP2.get(5).getSymbol();
+//            String number=cardsP2.get(5).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p26.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=5)
         {
             p25.setVisible(true);
-            String symbol=cardsP2.get(4).getSymbol();
-            String number=cardsP2.get(4).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p25.setImage(image);
+//            String symbol=cardsP2.get(4).getSymbol();
+//            String number=cardsP2.get(4).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p25.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=4)
         {
             p24.setVisible(true);
-            String symbol=cardsP2.get(3).getSymbol();
-            String number=cardsP2.get(3).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p24.setImage(image);
+//            String symbol=cardsP2.get(3).getSymbol();
+//            String number=cardsP2.get(3).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p24.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=3)
         {
             p23.setVisible(true);
-            String symbol=cardsP2.get(2).getSymbol();
-            String number=cardsP2.get(2).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p23.setImage(image);
+//            String symbol=cardsP2.get(2).getSymbol();
+//            String number=cardsP2.get(2).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p23.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=2)
         {
             p22.setVisible(true);
-            String symbol=cardsP2.get(1).getSymbol();
-            String number=cardsP2.get(1).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p22.setImage(image);
+//            String symbol=cardsP2.get(1).getSymbol();
+//            String number=cardsP2.get(1).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p22.setStyle("-fx-background-image: "+s+";");
         }
         if(cardsP2.size()>=1)
         {
             p21.setVisible(true);
-            String symbol=cardsP2.get(0).getSymbol();
-            String number=cardsP2.get(0).getNumber();
-            String s=new String("/Karty/"+number+symbol+".png");
-            File file = new File(s);
-            System.out.println(s);
-            Image image = new Image(file.toURI().toString());
-            p21.setImage(image);
+//            String symbol=cardsP2.get(0).getSymbol();
+//            String number=cardsP2.get(0).getNumber();
+//            String s=new String("url(\"/Karty/"+number+symbol+".png\")");
+//            //File file = new File(s);
+//            System.out.println(s);
+//            //Image image = new Image(file.toURI().toString());
+//            p21.setStyle("-fx-background-image: "+s+";");
         }
-
 
     }
 
