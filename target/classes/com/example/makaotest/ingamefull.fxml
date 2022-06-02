@@ -373,7 +373,7 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <Pane fx:id="p1invisible1" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
+            <Pane fx:id="p2invisible" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
          </children>
       </AnchorPane>
    </children>

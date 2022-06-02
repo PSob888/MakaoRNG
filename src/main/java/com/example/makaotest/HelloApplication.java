@@ -6,12 +6,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     public int Tryb; //0-Niski, 1-Wysoki
     public int Tura;
-    public Card cardsP1;
-    public Card cardsP2;
+    public List<Card> cardsP1;
+    public List<Card> cardsP2;
 
     @Override
     public void start(Stage stage) throws IOException {

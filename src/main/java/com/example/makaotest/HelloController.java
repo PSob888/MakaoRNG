@@ -23,6 +23,8 @@ public class HelloController extends HelloApplication{
     @FXML
     private Button wysoki;
     @FXML
+    private Pane p1invisible;
+    @FXML
     private Pane p2invisible;
 
     @FXML
@@ -34,7 +36,6 @@ public class HelloController extends HelloApplication{
         stage.show();
         Tura=0;
         p2invisible.setVisible(true);
-
     }
 
     @FXML
@@ -49,5 +50,9 @@ public class HelloController extends HelloApplication{
         niski.setTextFill(Color.rgb(111,111,111));
         wysoki.setTextFill(Color.WHITE);
         Tryb=1;
+    }
+
+    void cardsStart(){
+
     }
 }
