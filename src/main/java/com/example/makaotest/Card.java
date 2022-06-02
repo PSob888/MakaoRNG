@@ -24,4 +24,10 @@ public class Card {
     public String getNumber() {
         return number;
     }
+
+    public boolean isEqual(Card c){
+        if(c.getNumber()==this.number&&c.getSymbol()==this.symbol)
+            return true;
+        return false;
+    }
 }
