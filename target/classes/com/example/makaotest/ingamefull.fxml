@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.makaotest.HelloController">
+   <children>
+      <AnchorPane fx:id="player1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css">
+         <children>
+            <ImageView fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="14.0">
+               <image>
+                  <Image url="@Karty/back.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="111.0" fitWidth="79.0" layoutX="675.0" layoutY="139.0">
+               <image>
+                  <Image url="@Karty/back.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Button fx:id="p1Dobierz" layoutX="686.0" layoutY="267.0" mnemonicParsing="false" text="Dobierz">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <ImageView fx:id="polozona" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0">
+               <image>
+                  <Image url="@Karty/8w.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0">
+               <image>
+                  <Image url="@Karty/640px-Windows_Settings_app_icon.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="453.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość Kart: ">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="p1enemyilosc" fill="WHITE" layoutX="555.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="p1info" mnemonicParsing="false" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="39.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="p11" fitHeight="111.0" fitWidth="79.0" layoutX="74.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p12" fitHeight="111.0" fitWidth="79.0" layoutX="114.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/4z.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p13" fitHeight="111.0" fitWidth="79.0" layoutX="153.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p14" fitHeight="111.0" fitWidth="79.0" layoutX="193.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p15" fitHeight="111.0" fitWidth="79.0" layoutX="233.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p16" fitHeight="111.0" fitWidth="79.0" layoutX="268.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p17" fitHeight="111.0" fitWidth="79.0" layoutX="308.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p18" fitHeight="111.0" fitWidth="79.0" layoutX="348.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p19" fitHeight="111.0" fitWidth="79.0" layoutX="388.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p110" fitHeight="111.0" fitWidth="79.0" layoutX="427.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p111" fitHeight="111.0" fitWidth="79.0" layoutX="462.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p112" fitHeight="111.0" fitWidth="79.0" layoutX="502.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p113" fitHeight="111.0" fitWidth="79.0" layoutX="542.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p114" fitHeight="111.0" fitWidth="79.0" layoutX="582.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p115" fitHeight="111.0" fitWidth="79.0" layoutX="622.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p116" fitHeight="111.0" fitWidth="79.0" layoutX="662.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Pane fx:id="p1invisible" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="player2" layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css">
+         <children>
+            <ImageView fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="14.0">
+               <image>
+                  <Image url="@Karty/back.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="111.0" fitWidth="79.0" layoutX="675.0" layoutY="139.0">
+               <image>
+                  <Image url="@Karty/back.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Button fx:id="p2Dobierz" layoutX="686.0" layoutY="267.0" mnemonicParsing="false" text="Dobierz">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <ImageView fx:id="polozona" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0">
+               <image>
+                  <Image url="@Karty/8w.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0">
+               <image>
+                  <Image url="@Karty/640px-Windows_Settings_app_icon.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="453.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość Kart: ">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="p2enemyilosc" fill="WHITE" layoutX="555.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="p2info" mnemonicParsing="false" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="39.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="p21" fitHeight="111.0" fitWidth="79.0" layoutX="74.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/2d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p22" fitHeight="111.0" fitWidth="79.0" layoutX="114.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/4z.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p23" fitHeight="111.0" fitWidth="79.0" layoutX="153.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p24" fitHeight="111.0" fitWidth="79.0" layoutX="193.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p25" fitHeight="111.0" fitWidth="79.0" layoutX="233.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p26" fitHeight="111.0" fitWidth="79.0" layoutX="268.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p27" fitHeight="111.0" fitWidth="79.0" layoutX="308.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p28" fitHeight="111.0" fitWidth="79.0" layoutX="348.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p29" fitHeight="111.0" fitWidth="79.0" layoutX="388.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p210" fitHeight="111.0" fitWidth="79.0" layoutX="427.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p211" fitHeight="111.0" fitWidth="79.0" layoutX="462.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p212" fitHeight="111.0" fitWidth="79.0" layoutX="502.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p213" fitHeight="111.0" fitWidth="79.0" layoutX="542.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p214" fitHeight="111.0" fitWidth="79.0" layoutX="582.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p215" fitHeight="111.0" fitWidth="79.0" layoutX="622.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="p216" fitHeight="111.0" fitWidth="79.0" layoutX="662.0" layoutY="375.0">
+               <image>
+                  <Image url="@Karty/8d.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Pane fx:id="p1invisible1" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
