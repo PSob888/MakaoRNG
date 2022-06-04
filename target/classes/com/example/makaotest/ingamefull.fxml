@@ -33,7 +33,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <ImageView fx:id="polozona" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0" styleClass="srodek">
+            <ImageView fx:id="polozona1" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0" styleClass="srodek">
                <image>
                   <Image url="@Karty/8w.png" />
                </image>

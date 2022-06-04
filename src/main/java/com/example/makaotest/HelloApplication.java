@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class HelloApplication extends Application {
     public int Tryb; //0-Niski, 1-Wysoki
     public int Tura;
-    public List<Card> cardsP1 =new ArrayList<>();;
-    public List<Card> cardsP2 =new ArrayList<>();;
+    public List<Card> cardsP1 =new ArrayList<>();
+    public List<Card> cardsP2 =new ArrayList<>();
+    public Card onTable = new Card("0","0");
 
     @Override
     public void start(Stage stage) throws IOException {

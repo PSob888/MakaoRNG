@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.BlurType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -16,11 +17,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.effect.DropShadow;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Random;
 
 public class IngameController extends HelloApplication{
@@ -98,6 +101,10 @@ public class IngameController extends HelloApplication{
     @FXML
     private ImageView p216;
     @FXML
+    private ImageView polozona1;
+    @FXML
+    private ImageView polozona2;
+    @FXML
     private Button p1dobierz;
     @FXML
     private Button p2dobierz;
@@ -105,6 +112,8 @@ public class IngameController extends HelloApplication{
     @FXML
     protected void initialize() throws FileNotFoundException {
         kartTest();
+        checkForGreenP1();
+        checkForGreenP2();
     }
 
     @FXML
@@ -129,6 +138,267 @@ public class IngameController extends HelloApplication{
         int enemy2=cardsP1.size();
         p1enemyilosc.setText(Integer.toString(enemy1));
         p2enemyilosc.setText(Integer.toString(enemy2));
+        String s=new String("karty/back.png");
+        System.out.println(s);
+        Image image = new Image(new FileInputStream(s));
+        polozona1.setImage(image);
+        polozona2.setImage(image);
+    }
+
+    void checkForGreenP1(){
+        if(cardsP1.size()>=16)
+        {
+            if(cardsP1.get(15).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p116);
+            else
+                disableGreenGlow(p116);
+        }
+        if(cardsP1.size()>=15)
+        {
+            if(cardsP1.get(14).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p115);
+            else
+                disableGreenGlow(p115);
+        }
+        if(cardsP1.size()>=14)
+        {
+            if(cardsP1.get(13).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p114);
+            else
+                disableGreenGlow(p114);
+        }
+        if(cardsP1.size()>=13)
+        {
+            if(cardsP1.get(12).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p113);
+            else
+                disableGreenGlow(p113);
+        }
+        if(cardsP1.size()>=12)
+        {
+            if(cardsP1.get(11).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p112);
+            else
+                disableGreenGlow(p112);
+        }
+        if(cardsP1.size()>=11)
+        {
+            if(cardsP1.get(10).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p111);
+            else
+                disableGreenGlow(p111);
+        }
+        if(cardsP1.size()>=10)
+        {
+            if(cardsP1.get(9).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p110);
+            else
+                disableGreenGlow(p110);
+        }
+        if(cardsP1.size()>=9)
+        {
+            if(cardsP1.get(8).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p19);
+            else
+                disableGreenGlow(p19);
+        }
+        if(cardsP1.size()>=8)
+        {
+            if(cardsP1.get(7).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p18);
+            else
+                disableGreenGlow(p18);
+        }
+        if(cardsP1.size()>=7)
+        {
+            if(cardsP1.get(6).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p17);
+            else
+                disableGreenGlow(p17);
+        }
+        if(cardsP1.size()>=6)
+        {
+            if(cardsP1.get(5).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p16);
+            else
+                disableGreenGlow(p16);
+        }
+        if(cardsP1.size()>=5)
+        {
+            if(cardsP1.get(4).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p15);
+            else
+                disableGreenGlow(p15);
+        }
+        if(cardsP1.size()>=4)
+        {
+            if(cardsP1.get(3).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p14);
+            else
+                disableGreenGlow(p14);
+        }
+        if(cardsP1.size()>=3)
+        {
+            if(cardsP1.get(2).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p13);
+            else
+                disableGreenGlow(p13);
+        }
+        if(cardsP1.size()>=2)
+        {
+            if(cardsP1.get(1).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p12);
+            else
+                disableGreenGlow(p12);
+        }
+        if(cardsP1.size()>=1)
+        {
+            if(cardsP1.get(0).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p11);
+            else
+                disableGreenGlow(p11);
+            setGreenGlow(p11);
+        }
+    }
+
+    void checkForGreenP2(){
+        if(cardsP2.size()>=16)
+        {
+            if(cardsP2.get(15).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p216);
+            else
+                disableGreenGlow(p216);
+        }
+        if(cardsP2.size()>=15)
+        {
+            if(cardsP2.get(14).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p215);
+            else
+                disableGreenGlow(p215);
+        }
+        if(cardsP2.size()>=14)
+        {
+            if(cardsP2.get(13).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p214);
+            else
+                disableGreenGlow(p214);
+        }
+        if(cardsP2.size()>=13)
+        {
+            if(cardsP2.get(12).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p213);
+            else
+                disableGreenGlow(p213);
+        }
+        if(cardsP2.size()>=12)
+        {
+            if(cardsP2.get(11).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p212);
+            else
+                disableGreenGlow(p212);
+        }
+        if(cardsP2.size()>=11)
+        {
+            if(cardsP2.get(10).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p211);
+            else
+                disableGreenGlow(p211);
+        }
+        if(cardsP2.size()>=10)
+        {
+            if(cardsP2.get(9).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p210);
+            else
+                disableGreenGlow(p210);
+        }
+        if(cardsP2.size()>=9)
+        {
+            if(cardsP2.get(8).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p29);
+            else
+                disableGreenGlow(p29);
+        }
+        if(cardsP2.size()>=8)
+        {
+            if(cardsP2.get(7).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p28);
+            else
+                disableGreenGlow(p28);
+        }
+        if(cardsP2.size()>=7)
+        {
+            if(cardsP2.get(6).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p27);
+            else
+                disableGreenGlow(p27);
+        }
+        if(cardsP2.size()>=6)
+        {
+            if(cardsP2.get(5).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p26);
+            else
+                disableGreenGlow(p26);
+        }
+        if(cardsP2.size()>=5)
+        {
+            if(cardsP2.get(4).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p25);
+            else
+                disableGreenGlow(p25);
+        }
+        if(cardsP2.size()>=4)
+        {
+            if(cardsP2.get(3).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p24);
+            else
+                disableGreenGlow(p24);
+        }
+        if(cardsP2.size()>=3)
+        {
+            if(cardsP2.get(2).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p23);
+            else
+                disableGreenGlow(p23);
+        }
+        if(cardsP2.size()>=2)
+        {
+            if(cardsP2.get(1).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p22);
+            else
+                disableGreenGlow(p22);
+        }
+        if(cardsP2.size()>=1)
+        {
+            if(cardsP2.get(0).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p21);
+            else
+                disableGreenGlow(p21);
+            setGreenGlow(p21);
+        }
+    }
+
+    void disableGreenGlow(ImageView card){
+        //card.setStyle("-fx-effect: dropshadow(three-pass-box,rgb(13,255,0),35,0.63,0,0)");
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
+        dropShadow.setColor(Color.rgb(0,0,0));
+        dropShadow.setHeight(21);
+        dropShadow.setWidth(21);
+        dropShadow.setRadius(10);
+        dropShadow.setSpread(0);
+        card.setEffect(dropShadow);
+    }
+
+    void setGreenGlow(ImageView card){
+        //card.setStyle("-fx-effect: dropshadow(three-pass-box,rgb(0,0,0),10,0,0,0)");
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
+        dropShadow.setColor(Color.rgb(13,255,0));
+        dropShadow.setHeight(31);
+        dropShadow.setWidth(31);
+        dropShadow.setRadius(15);
+        dropShadow.setSpread(0.45);
+        card.setEffect(dropShadow);
     }
 
     void cardsStart(){ //dodac krole itd
