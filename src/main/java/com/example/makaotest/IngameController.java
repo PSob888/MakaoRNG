@@ -171,7 +171,7 @@ public class IngameController extends HelloApplication{
 
     private void onClickCardP1Fucntion(Button card, Button p, int amt) throws FileNotFoundException {
         //sprawdzanie i inne gowna
-        if(cardsP1.size()>=amt&& card.equals(p)){
+        if(cardsP1.size()>=amt&&card.equals(p)&&(cardsP1.get(amt-1).isSimilar(onTable)||Objects.equals(onTable.getNumber(), "0"))){
             String symbol=cardsP1.get(amt-1).getSymbol();
             String number=cardsP1.get(amt-1).getNumber();
             String s=new String("karty/"+number+symbol+".png");
@@ -182,12 +182,35 @@ public class IngameController extends HelloApplication{
             polozona1.setImage(image);
             polozona2.setImage(image);
             //usuniecie karty z reki
-            //losowanie karty
+            cardsP1.remove(amt-1);
+            disableAllCardsP1();
+            //zamiana karty z reki na losowa
             //reload kart w rece
+            cardsSetImages();
             checkForGreenP1();
             checkForGreenP2();
             //animacja
         }
+    }
+
+    void disableAllCardsP1()
+    {
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
+        p110.setVisible(false);
+        p111.setVisible(false);
+        p112.setVisible(false);
+        p113.setVisible(false);
+        p114.setVisible(false);
+        p115.setVisible(false);
+        p116.setVisible(false);
     }
 
     @FXML
@@ -215,9 +238,9 @@ public class IngameController extends HelloApplication{
 
     private void onClickCardP2Fucntion(Button card, Button p, int amt) throws FileNotFoundException {
         //sprawdzanie i inne gowna
-        if(cardsP1.size()>=amt&& card.equals(p)){
-            String symbol=cardsP1.get(amt-1).getSymbol();
-            String number=cardsP1.get(amt-1).getNumber();
+        if(cardsP2.size()>=amt&&card.equals(p)&&(cardsP2.get(amt-1).isSimilar(onTable)||Objects.equals(onTable.getNumber(), "0"))){
+            String symbol=cardsP2.get(amt-1).getSymbol();
+            String number=cardsP2.get(amt-1).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
             Image image = new Image(new FileInputStream(s));
@@ -226,241 +249,82 @@ public class IngameController extends HelloApplication{
             polozona1.setImage(image);
             polozona2.setImage(image);
             //usuniecie karty z reki
-            //losowanie karty
+            cardsP2.remove(amt-1);
+            disableAllCardsP2();
+            //zamiana karty z reki na losowa
             //reload kart w rece
+            cardsSetImages();
             checkForGreenP1();
             checkForGreenP2();
             //animacja
         }
     }
 
+    void disableAllCardsP2()
+    {
+        p21.setVisible(false);
+        p22.setVisible(false);
+        p23.setVisible(false);
+        p24.setVisible(false);
+        p25.setVisible(false);
+        p26.setVisible(false);
+        p27.setVisible(false);
+        p28.setVisible(false);
+        p29.setVisible(false);
+        p210.setVisible(false);
+        p211.setVisible(false);
+        p212.setVisible(false);
+        p213.setVisible(false);
+        p214.setVisible(false);
+        p215.setVisible(false);
+        p216.setVisible(false);
+    }
+
     void checkForGreenP1(){
-        if(cardsP1.size()>=16)
-        {
-            if(cardsP1.get(15).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p116);
-            else
-                disableGreenGlow(p116);
-        }
-        if(cardsP1.size()>=15)
-        {
-            if(cardsP1.get(14).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p115);
-            else
-                disableGreenGlow(p115);
-        }
-        if(cardsP1.size()>=14)
-        {
-            if(cardsP1.get(13).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p114);
-            else
-                disableGreenGlow(p114);
-        }
-        if(cardsP1.size()>=13)
-        {
-            if(cardsP1.get(12).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p113);
-            else
-                disableGreenGlow(p113);
-        }
-        if(cardsP1.size()>=12)
-        {
-            if(cardsP1.get(11).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p112);
-            else
-                disableGreenGlow(p112);
-        }
-        if(cardsP1.size()>=11)
-        {
-            if(cardsP1.get(10).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p111);
-            else
-                disableGreenGlow(p111);
-        }
-        if(cardsP1.size()>=10)
-        {
-            if(cardsP1.get(9).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p110);
-            else
-                disableGreenGlow(p110);
-        }
-        if(cardsP1.size()>=9)
-        {
-            if(cardsP1.get(8).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p19);
-            else
-                disableGreenGlow(p19);
-        }
-        if(cardsP1.size()>=8)
-        {
-            if(cardsP1.get(7).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p18);
-            else
-                disableGreenGlow(p18);
-        }
-        if(cardsP1.size()>=7)
-        {
-            if(cardsP1.get(6).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p17);
-            else
-                disableGreenGlow(p17);
-        }
-        if(cardsP1.size()>=6)
-        {
-            if(cardsP1.get(5).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p16);
-            else
-                disableGreenGlow(p16);
-        }
-        if(cardsP1.size()>=5)
-        {
-            if(cardsP1.get(4).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p15);
-            else
-                disableGreenGlow(p15);
-        }
-        if(cardsP1.size()>=4)
-        {
-            if(cardsP1.get(3).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p14);
-            else
-                disableGreenGlow(p14);
-        }
-        if(cardsP1.size()>=3)
-        {
-            if(cardsP1.get(2).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p13);
-            else
-                disableGreenGlow(p13);
-        }
-        if(cardsP1.size()>=2)
-        {
-            if(cardsP1.get(1).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p12);
-            else
-                disableGreenGlow(p12);
-        }
-        if(cardsP1.size()>=1)
-        {
-            if(cardsP1.get(0).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p11);
-            else
-                disableGreenGlow(p11);
-        }
+        checkForGreenHelper(cardsP1, 16, 15, p116);
+        checkForGreenHelper(cardsP1, 15, 14, p115);
+        checkForGreenHelper(cardsP1, 14, 13, p114);
+        checkForGreenHelper(cardsP1, 13, 12, p113);
+        checkForGreenHelper(cardsP1, 12, 11, p112);
+        checkForGreenHelper(cardsP1, 11, 10, p111);
+        checkForGreenHelper(cardsP1, 10, 9, p110);
+        checkForGreenHelper(cardsP1, 9, 8, p19);
+        checkForGreenHelper(cardsP1, 8, 7, p18);
+        checkForGreenHelper(cardsP1, 7, 6, p17);
+        checkForGreenHelper(cardsP1, 6, 5, p16);
+        checkForGreenHelper(cardsP1, 5, 4, p15);
+        checkForGreenHelper(cardsP1, 4, 3, p14);
+        checkForGreenHelper(cardsP1, 3, 2, p13);
+        checkForGreenHelper(cardsP1, 2, 1, p12);
+        checkForGreenHelper(cardsP1, 1, 0, p11);
     }
 
     void checkForGreenP2(){
-        if(cardsP2.size()>=16)
+        checkForGreenHelper(cardsP2, 16, 15, p216);
+        checkForGreenHelper(cardsP2, 15, 14, p215);
+        checkForGreenHelper(cardsP2, 14, 13, p214);
+        checkForGreenHelper(cardsP2, 13, 12, p213);
+        checkForGreenHelper(cardsP2, 12, 11, p212);
+        checkForGreenHelper(cardsP2, 11, 10, p211);
+        checkForGreenHelper(cardsP2, 10, 9, p210);
+        checkForGreenHelper(cardsP2, 9, 8, p29);
+        checkForGreenHelper(cardsP2, 8, 7, p28);
+        checkForGreenHelper(cardsP2, 7, 6, p27);
+        checkForGreenHelper(cardsP2, 6, 5, p26);
+        checkForGreenHelper(cardsP2, 5, 4, p25);
+        checkForGreenHelper(cardsP2, 4, 3, p24);
+        checkForGreenHelper(cardsP2, 3, 2, p23);
+        checkForGreenHelper(cardsP2, 2, 1, p22);
+        checkForGreenHelper(cardsP2, 1, 0, p21);
+    }
+
+    private void checkForGreenHelper(List<Card> cards, int x, int index, Button p) {
+        if(cards.size()>= x)
         {
-            if(cardsP2.get(15).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p216);
+            if(cards.get(index).isSimilar(onTable)|| Objects.equals(onTable.getNumber(), "0"))
+                setGreenGlow(p);
             else
-                disableGreenGlow(p216);
-        }
-        if(cardsP2.size()>=15)
-        {
-            if(cardsP2.get(14).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p215);
-            else
-                disableGreenGlow(p215);
-        }
-        if(cardsP2.size()>=14)
-        {
-            if(cardsP2.get(13).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p214);
-            else
-                disableGreenGlow(p214);
-        }
-        if(cardsP2.size()>=13)
-        {
-            if(cardsP2.get(12).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p213);
-            else
-                disableGreenGlow(p213);
-        }
-        if(cardsP2.size()>=12)
-        {
-            if(cardsP2.get(11).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p212);
-            else
-                disableGreenGlow(p212);
-        }
-        if(cardsP2.size()>=11)
-        {
-            if(cardsP2.get(10).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p211);
-            else
-                disableGreenGlow(p211);
-        }
-        if(cardsP2.size()>=10)
-        {
-            if(cardsP2.get(9).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p210);
-            else
-                disableGreenGlow(p210);
-        }
-        if(cardsP2.size()>=9)
-        {
-            if(cardsP2.get(8).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p29);
-            else
-                disableGreenGlow(p29);
-        }
-        if(cardsP2.size()>=8)
-        {
-            if(cardsP2.get(7).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p28);
-            else
-                disableGreenGlow(p28);
-        }
-        if(cardsP2.size()>=7)
-        {
-            if(cardsP2.get(6).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p27);
-            else
-                disableGreenGlow(p27);
-        }
-        if(cardsP2.size()>=6)
-        {
-            if(cardsP2.get(5).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p26);
-            else
-                disableGreenGlow(p26);
-        }
-        if(cardsP2.size()>=5)
-        {
-            if(cardsP2.get(4).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p25);
-            else
-                disableGreenGlow(p25);
-        }
-        if(cardsP2.size()>=4)
-        {
-            if(cardsP2.get(3).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p24);
-            else
-                disableGreenGlow(p24);
-        }
-        if(cardsP2.size()>=3)
-        {
-            if(cardsP2.get(2).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p23);
-            else
-                disableGreenGlow(p23);
-        }
-        if(cardsP2.size()>=2)
-        {
-            if(cardsP2.get(1).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p22);
-            else
-                disableGreenGlow(p22);
-        }
-        if(cardsP2.size()>=1)
-        {
-            if(cardsP2.get(0).isEqual(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p21);
-            else
-                disableGreenGlow(p21);
+                disableGreenGlow(p);
         }
     }
 
@@ -575,425 +439,55 @@ public class IngameController extends HelloApplication{
     }
 
     void cardsSetImages() throws FileNotFoundException {
-        if(cardsP1.size()>=16)
-        {
-            p116.setVisible(true);
-            String symbol=cardsP1.get(15).getSymbol();
-            String number=cardsP1.get(15).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p116.setBackground(bg);
-        }
-        if(cardsP1.size()>=15)
-        {
-            p115.setVisible(true);
-            String symbol=cardsP1.get(14).getSymbol();
-            String number=cardsP1.get(14).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p115.setBackground(bg);
-        }
-        if(cardsP1.size()>=14)
-        {
-            p114.setVisible(true);
-            String symbol=cardsP1.get(13).getSymbol();
-            String number=cardsP1.get(13).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p114.setBackground(bg);
-        }
-        if(cardsP1.size()>=13)
-        {
-            p113.setVisible(true);
-            String symbol=cardsP1.get(12).getSymbol();
-            String number=cardsP1.get(12).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p113.setBackground(bg);
-        }
-        if(cardsP1.size()>=12)
-        {
-            p112.setVisible(true);
-            String symbol=cardsP1.get(11).getSymbol();
-            String number=cardsP1.get(11).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p112.setBackground(bg);
-        }
-        if(cardsP1.size()>=11)
-        {
-            p111.setVisible(true);
-            String symbol=cardsP1.get(10).getSymbol();
-            String number=cardsP1.get(10).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p111.setBackground(bg);
-        }
-        if(cardsP1.size()>=10)
-        {
-            p110.setVisible(true);
-            String symbol=cardsP1.get(9).getSymbol();
-            String number=cardsP1.get(9).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p110.setBackground(bg);
-        }
-        if(cardsP1.size()>=9)
-        {
-            p19.setVisible(true);
-            String symbol=cardsP1.get(8).getSymbol();
-            String number=cardsP1.get(8).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p19.setBackground(bg);
-        }
-        if(cardsP1.size()>=8)
-        {
-            p18.setVisible(true);
-            String symbol=cardsP1.get(7).getSymbol();
-            String number=cardsP1.get(7).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p18.setBackground(bg);
-        }
-        if(cardsP1.size()>=7)
-        {
-            p17.setVisible(true);
-            String symbol=cardsP1.get(6).getSymbol();
-            String number=cardsP1.get(6).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p17.setBackground(bg);
-        }
-        if(cardsP1.size()>=6)
-        {
-            p16.setVisible(true);
-            String symbol=cardsP1.get(5).getSymbol();
-            String number=cardsP1.get(5).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p16.setBackground(bg);
-        }
-        if(cardsP1.size()>=5)
-        {
-            p15.setVisible(true);
-            String symbol=cardsP1.get(4).getSymbol();
-            String number=cardsP1.get(4).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p15.setBackground(bg);
-        }
-        if(cardsP1.size()>=4)
-        {
-            p14.setVisible(true);
-            String symbol=cardsP1.get(3).getSymbol();
-            String number=cardsP1.get(3).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p14.setBackground(bg);
-        }
-        if(cardsP1.size()>=3)
-        {
-            p13.setVisible(true);
-            String symbol=cardsP1.get(2).getSymbol();
-            String number=cardsP1.get(2).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p13.setBackground(bg);
-        }
-        if(cardsP1.size()>=2)
-        {
-            p12.setVisible(true);
-            String symbol=cardsP1.get(1).getSymbol();
-            String number=cardsP1.get(1).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p12.setBackground(bg);
-        }
-        if(cardsP1.size()>=1)
-        {
-            p11.setVisible(true);
-            String symbol=cardsP1.get(0).getSymbol();
-            String number=cardsP1.get(0).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p11.setBackground(bg);
-        }
-
+        cardsSetImagesHelper(cardsP1, 16, p116, 15);
+        cardsSetImagesHelper(cardsP1, 15, p115, 14);
+        cardsSetImagesHelper(cardsP1, 14, p114, 13);
+        cardsSetImagesHelper(cardsP1, 13, p113, 12);
+        cardsSetImagesHelper(cardsP1, 12, p112, 11);
+        cardsSetImagesHelper(cardsP1, 11, p111, 10);
+        cardsSetImagesHelper(cardsP1, 10, p110, 9);
+        cardsSetImagesHelper(cardsP1, 9, p19, 8);
+        cardsSetImagesHelper(cardsP1, 8, p18, 7);
+        cardsSetImagesHelper(cardsP1, 7, p17, 6);
+        cardsSetImagesHelper(cardsP1, 6, p16, 5);
+        cardsSetImagesHelper(cardsP1, 5, p15, 4);
+        cardsSetImagesHelper(cardsP1, 4, p14, 3);
+        cardsSetImagesHelper(cardsP1, 3, p13, 2);
+        cardsSetImagesHelper(cardsP1, 2, p12, 1);
+        cardsSetImagesHelper(cardsP1, 1, p11, 0);
         //-------------------------------------------------------------------------------------------------
-        if(cardsP2.size()>=16)
-        {
-            p216.setVisible(true);
-            String symbol=cardsP2.get(15).getSymbol();
-            String number=cardsP2.get(15).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p216.setBackground(bg);
-        }
-        if(cardsP2.size()>=15)
-        {
-            p215.setVisible(true);
-            String symbol=cardsP2.get(14).getSymbol();
-            String number=cardsP2.get(14).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p215.setBackground(bg);
-        }
-        if(cardsP2.size()>=14)
-        {
-            p214.setVisible(true);
-            String symbol=cardsP2.get(13).getSymbol();
-            String number=cardsP2.get(13).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p214.setBackground(bg);
-        }
-        if(cardsP2.size()>=13)
-        {
-            p213.setVisible(true);
-            String symbol=cardsP2.get(12).getSymbol();
-            String number=cardsP2.get(12).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p213.setBackground(bg);
-        }
-        if(cardsP2.size()>=12)
-        {
-            p212.setVisible(true);
-            String symbol=cardsP2.get(11).getSymbol();
-            String number=cardsP2.get(11).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p212.setBackground(bg);
-        }
-        if(cardsP2.size()>=11)
-        {
-            p211.setVisible(true);
-            String symbol=cardsP2.get(10).getSymbol();
-            String number=cardsP2.get(10).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p211.setBackground(bg);
-        }
-        if(cardsP2.size()>=10)
-        {
-            p210.setVisible(true);
-            String symbol=cardsP2.get(9).getSymbol();
-            String number=cardsP2.get(9).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p210.setBackground(bg);
-        }
-        if(cardsP2.size()>=9)
-        {
-            p29.setVisible(true);
-            String symbol=cardsP2.get(8).getSymbol();
-            String number=cardsP2.get(8).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p29.setBackground(bg);
-        }
-        if(cardsP1.size()>=8)
-        {
-            p28.setVisible(true);
-            String symbol=cardsP2.get(7).getSymbol();
-            String number=cardsP2.get(7).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p28.setBackground(bg);
-        }
-        if(cardsP1.size()>=7)
-        {
-            p27.setVisible(true);
-            String symbol=cardsP2.get(6).getSymbol();
-            String number=cardsP2.get(6).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p27.setBackground(bg);
-        }
-        if(cardsP1.size()>=6)
-        {
-            p26.setVisible(true);
-            String symbol=cardsP2.get(5).getSymbol();
-            String number=cardsP2.get(5).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p26.setBackground(bg);
-        }
-        if(cardsP2.size()>=5)
-        {
-            p25.setVisible(true);
-            String symbol=cardsP2.get(4).getSymbol();
-            String number=cardsP2.get(4).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p25.setBackground(bg);
-        }
-        if(cardsP2.size()>=4)
-        {
-            p24.setVisible(true);
-            String symbol=cardsP2.get(3).getSymbol();
-            String number=cardsP2.get(3).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p24.setBackground(bg);
-        }
-        if(cardsP2.size()>=3)
-        {
-            p23.setVisible(true);
-            String symbol=cardsP2.get(2).getSymbol();
-            String number=cardsP2.get(2).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p23.setBackground(bg);
-        }
-        if(cardsP2.size()>=2)
-        {
-            p22.setVisible(true);
-            String symbol=cardsP2.get(1).getSymbol();
-            String number=cardsP2.get(1).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p22.setBackground(bg);
-        }
-        if(cardsP2.size()>=1)
-        {
-            p21.setVisible(true);
-            String symbol=cardsP2.get(0).getSymbol();
-            String number=cardsP2.get(0).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
-            Image img = new Image(new FileInputStream(s));
-            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
-            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
-            Background bg = new Background(bimg);
-            p21.setBackground(bg);
-        }
+        cardsSetImagesHelper(cardsP2, 16, p216, 15);
+        cardsSetImagesHelper(cardsP2, 15, p215, 14);
+        cardsSetImagesHelper(cardsP2, 14, p214, 13);
+        cardsSetImagesHelper(cardsP2, 13, p213, 12);
+        cardsSetImagesHelper(cardsP2, 12, p212, 11);
+        cardsSetImagesHelper(cardsP2, 11, p211, 10);
+        cardsSetImagesHelper(cardsP2, 10, p210, 9);
+        cardsSetImagesHelper(cardsP2, 9, p29, 8);
+        cardsSetImagesHelper(cardsP1, 8, p28, 7);
+        cardsSetImagesHelper(cardsP1, 7, p27, 6);
+        cardsSetImagesHelper(cardsP1, 6, p26, 5);
+        cardsSetImagesHelper(cardsP2, 5, p25, 4);
+        cardsSetImagesHelper(cardsP2, 4, p24, 3);
+        cardsSetImagesHelper(cardsP2, 3, p23, 2);
+        cardsSetImagesHelper(cardsP2, 2, p22, 1);
+        cardsSetImagesHelper(cardsP2, 1, p21, 0);
+    }
 
+    private void cardsSetImagesHelper(List<Card> cards, int x, Button p, int index) throws FileNotFoundException {
+        if(cards.size()>= x)
+        {
+            p.setVisible(true);
+            String symbol= cards.get(index).getSymbol();
+            String number= cards.get(index).getNumber();
+            String s=new String("karty/"+number+symbol+".png");
+            System.out.println(s);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p.setBackground(bg);
+        }
     }
 
     public boolean isInHandP1(Card c){
