@@ -196,6 +196,8 @@ public class IngameController extends HelloApplication{
             cardsSetImages();
             checkForGreenP1();
             checkForGreenP2();
+            //update ilosci kart
+            cardsAmountUpdate();
             //animacja
             animationFromP1ToP2();
         }
@@ -370,9 +372,19 @@ public class IngameController extends HelloApplication{
             cardsSetImages();
             checkForGreenP1();
             checkForGreenP2();
+            //update ilosci kart
+            cardsAmountUpdate();
             //animacja
             animationFromP2ToP1();
         }
+    }
+
+    void cardsAmountUpdate()
+    {
+        int enemy1 = cardsP2.size();
+        int enemy2 = cardsP1.size();
+        p1enemyilosc.setText(Integer.toString(enemy1));
+        p2enemyilosc.setText(Integer.toString(enemy2));
     }
 
     void animationFromP2ToP1()

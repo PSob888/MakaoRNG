@@ -1,5 +1,7 @@
 package com.example.makaotest;
 
+import java.util.Objects;
+
 public class Card {
     private String symbol;//s-serce, w-wino, d-diament, z-zoladz
     private String number;//od 2 do 14, jopek-11, krolowa-12, krol-13, as-14
@@ -26,18 +28,19 @@ public class Card {
     }
 
     public boolean isEqual(Card c){
-        if(c.getNumber()==this.number&&c.getSymbol()==this.symbol)
+        if(Objects.equals(c.getNumber(), this.number) && Objects.equals(c.getSymbol(), this.symbol))
             return true;
         return false;
     }
+
     public boolean isDiffrent(Card c){
-        if(c.getNumber()!=this.number||c.getSymbol()!=this.symbol)
+        if(!Objects.equals(c.getNumber(), this.number) || !Objects.equals(c.getSymbol(), this.symbol))
             return true;
         return false;
     }
 
     public boolean isSimilar(Card c){
-        if(c.getNumber()==this.number||c.getSymbol()==this.symbol)
+        if(Objects.equals(c.getNumber(), this.number) || Objects.equals(c.getSymbol(), this.symbol))
             return true;
         return false;
     }
