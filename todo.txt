@@ -1,0 +1,2 @@
+1.Poprawa bledow wyswietlania na zielono
+2.Poprawa bledow w losowaniu kart (czasami wylosuja taka sama karte 2 razy u jednego gracza lub taka sama karte u obu graczy)

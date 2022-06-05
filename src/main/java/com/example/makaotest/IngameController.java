@@ -1,6 +1,8 @@
 package com.example.makaotest;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.effect.DropShadow;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,6 +35,8 @@ public class IngameController extends HelloApplication{
     private Text p1enemyilosc;
     @FXML
     private Text p2enemyilosc;
+    @FXML
+    private Text zmianagracza;
     @FXML
     private AnchorPane p1invisible;
     @FXML
@@ -192,7 +197,56 @@ public class IngameController extends HelloApplication{
             checkForGreenP1();
             checkForGreenP2();
             //animacja
+            animationFromP1ToP2();
         }
+    }
+
+    void animationFromP1ToP2()
+    {
+        p1invisible.setOpacity(0);
+        p1invisible.setVisible(true);
+        p2invisible.setOpacity(1);
+        p2invisible.setVisible(true);
+        FadeTransition t1 = new FadeTransition(Duration.millis(1000),p1invisible);
+        t1.setFromValue(0);
+        t1.setToValue(1);
+        t1.play();
+        FadeTransition t2 = new FadeTransition(Duration.millis(1000),p2invisible);
+        t2.setFromValue(1);
+        t2.setToValue(0);
+        t2.setDelay(Duration.millis(4000));
+        t2.play();
+        t1.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                zmianagracza.setVisible(true);
+                FadeTransition t3 = new FadeTransition(Duration.millis(500),zmianagracza);
+                t3.setFromValue(0);
+                t3.setToValue(1.0);
+                t3.setAutoReverse(true);
+                t3.setCycleCount(1);
+                t3.play();
+                t3.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        FadeTransition t4 = new FadeTransition(Duration.millis(500),zmianagracza);
+                        t4.setFromValue(1.0);
+                        t4.setToValue(0);
+                        t4.setDelay(Duration.millis(2000));
+                        t4.setAutoReverse(true);
+                        t4.setCycleCount(1);
+                        t4.play();
+                    }
+                });
+            }
+        });
+        t2.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                p2invisible.setVisible(false);
+                zmianagracza.setVisible(false);
+            }
+        });
     }
 
     void randomizeCards(List<Card> cards){
@@ -317,7 +371,56 @@ public class IngameController extends HelloApplication{
             checkForGreenP1();
             checkForGreenP2();
             //animacja
+            animationFromP2ToP1();
         }
+    }
+
+    void animationFromP2ToP1()
+    {
+        p1invisible.setOpacity(1);
+        p1invisible.setVisible(true);
+        p2invisible.setOpacity(0);
+        p2invisible.setVisible(true);
+        FadeTransition t1 = new FadeTransition(Duration.millis(1000),p2invisible);
+        t1.setFromValue(0);
+        t1.setToValue(1);
+        t1.play();
+        FadeTransition t2 = new FadeTransition(Duration.millis(1000),p1invisible);
+        t2.setFromValue(1);
+        t2.setToValue(0);
+        t2.setDelay(Duration.millis(4000));
+        t2.play();
+        t1.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                zmianagracza.setVisible(true);
+                FadeTransition t3 = new FadeTransition(Duration.millis(500),zmianagracza);
+                t3.setFromValue(0);
+                t3.setToValue(1.0);
+                t3.setAutoReverse(true);
+                t3.setCycleCount(1);
+                t3.play();
+                t3.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        FadeTransition t4 = new FadeTransition(Duration.millis(500),zmianagracza);
+                        t4.setFromValue(1.0);
+                        t4.setToValue(0);
+                        t4.setDelay(Duration.millis(2000));
+                        t4.setAutoReverse(true);
+                        t4.setCycleCount(1);
+                        t4.play();
+                    }
+                });
+            }
+        });
+        t2.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                p1invisible.setVisible(false);
+                zmianagracza.setVisible(false);
+            }
+        });
     }
 
     void disableAllCardsP2()

@@ -244,6 +244,11 @@
                   <DropShadow />
                </effect></Button>
             <AnchorPane fx:id="p2invisible" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
+            <Text fx:id="zmianagracza" fill="WHITE" layoutX="-214.0" layoutY="281.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zmiana gracza" visible="false">
+               <font>
+                  <Font name="Consolas" size="60.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
