@@ -13,8 +13,14 @@ import java.util.ArrayList;
 public class HelloApplication extends Application {
     public int Tryb; //0-Niski, 1-Wysoki
     public int Tura;
+    public int ileDobrac=0;
+
     public List<Card> cardsP1 =new ArrayList<>();
+    public int p1ileStoi=0;
+
     public List<Card> cardsP2 =new ArrayList<>();
+    public int p2ileStoi=0;
+
     public Card onTable = new Card("0","0");
 
     @Override

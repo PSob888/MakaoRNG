@@ -126,6 +126,7 @@ public class IngameController extends HelloApplication{
     protected void onDobierz2Click(){
         p2invisible.setVisible(true);
         p1invisible.setVisible(false);
+        Tura++;
     }
 
     @FXML
@@ -454,7 +455,7 @@ public class IngameController extends HelloApplication{
                     s = "d";
                 if (los == 3)
                     s = "z";
-                int los2 = rand.nextInt(2, 11);
+                int los2 = rand.nextInt(2, 15);
                 String a = Integer.toString(los2);
                 karta = new Card(s, a);
             }while(isInHandP1(karta));
@@ -478,7 +479,7 @@ public class IngameController extends HelloApplication{
                     s = "d";
                 if (los == 3)
                     s = "z";
-                int los2 = rand.nextInt(2, 11);
+                int los2 = rand.nextInt(2, 15);
                 String a = Integer.toString(los2);
                 karta = new Card(s, a);
             }while(isInHandP1(karta)||isInHandP2(karta));
