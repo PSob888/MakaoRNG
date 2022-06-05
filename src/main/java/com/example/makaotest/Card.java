@@ -30,6 +30,11 @@ public class Card {
             return true;
         return false;
     }
+    public boolean isDiffrent(Card c){
+        if(c.getNumber()!=this.number||c.getSymbol()!=this.symbol)
+            return true;
+        return false;
+    }
 
     public boolean isSimilar(Card c){
         if(c.getNumber()==this.number||c.getSymbol()==this.symbol)

@@ -114,6 +114,7 @@ public class IngameController extends HelloApplication{
         kartTest();
         checkForGreenP1();
         checkForGreenP2();
+        System.out.println("Tryb: "+Tryb);
     }
 
     @FXML
@@ -175,7 +176,7 @@ public class IngameController extends HelloApplication{
             String symbol=cardsP1.get(amt-1).getSymbol();
             String number=cardsP1.get(amt-1).getNumber();
             String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
+            System.out.println(s+" Na srodek");
             Image image = new Image(new FileInputStream(s));
             onTable.setNumber(number);
             onTable.setSymbol(symbol);
@@ -185,11 +186,69 @@ public class IngameController extends HelloApplication{
             cardsP1.remove(amt-1);
             disableAllCardsP1();
             //zamiana karty z reki na losowa
+            randomizeCards(cardsP1);
             //reload kart w rece
             cardsSetImages();
             checkForGreenP1();
             checkForGreenP2();
             //animacja
+        }
+    }
+
+    void randomizeCards(List<Card> cards){
+        Random rand =new Random();
+        if(Tryb==0){
+            int max=cards.size();
+            int cardnumber=rand.nextInt(0, max);
+            Card karta = cards.get(cardnumber);
+            Card zamiana = new Card(karta.getSymbol(), karta.getNumber());
+            while(true){
+                String s = new String();
+                int los = rand.nextInt(4);
+                if (los == 0)
+                    s = "s";
+                if (los == 1)
+                    s = "w";
+                if (los == 2)
+                    s = "d";
+                if (los == 3)
+                    s = "z";
+                int los2 = rand.nextInt(2, 15);
+                String a = Integer.toString(los2);
+                zamiana.setSymbol(s);
+                zamiana.setNumber(a);
+                if(zamiana.isDiffrent(karta)&&!isInHandP2(zamiana)&&!isInHandP1(zamiana))
+                    break;
+            }
+            System.out.println("zamiana "+karta.getNumber()+karta.getSymbol()+" na "+zamiana.getNumber()+zamiana.getSymbol());
+            cards.set(cardnumber,zamiana);
+        }
+        else{
+            for(int i=0;i<cards.size();i++)
+            {
+                Card karta = cards.get(i);
+                Card zamiana = new Card(karta.getSymbol(), karta.getNumber());
+                while(true){
+                    String s = new String();
+                    int los = rand.nextInt(4);
+                    if (los == 0)
+                        s = "s";
+                    if (los == 1)
+                        s = "w";
+                    if (los == 2)
+                        s = "d";
+                    if (los == 3)
+                        s = "z";
+                    int los2 = rand.nextInt(2, 15);
+                    String a = Integer.toString(los2);
+                    zamiana.setSymbol(s);
+                    zamiana.setNumber(a);
+                    if(zamiana.isDiffrent(karta)&&!isInHandP2(zamiana)&&!isInHandP1(zamiana))
+                        break;
+                }
+                System.out.println("zamiana "+karta.getNumber()+karta.getSymbol()+" na "+zamiana.getNumber()+zamiana.getSymbol());
+                cards.set(i,zamiana);
+            }
         }
     }
 
@@ -252,6 +311,7 @@ public class IngameController extends HelloApplication{
             cardsP2.remove(amt-1);
             disableAllCardsP2();
             //zamiana karty z reki na losowa
+            randomizeCards(cardsP2);
             //reload kart w rece
             cardsSetImages();
             checkForGreenP1();
@@ -393,7 +453,7 @@ public class IngameController extends HelloApplication{
         for(int i=0;i<5;i++)
         {
             Card karta;
-            do
+            while(true)
             {
                 String s = new String();
                 int los = rand.nextInt(4);
@@ -408,7 +468,9 @@ public class IngameController extends HelloApplication{
                 int los2 = rand.nextInt(2, 15);
                 String a = Integer.toString(los2);
                 karta = new Card(s, a);
-            }while(isInHandP1(karta));
+                if(!isInHandP1(karta))
+                    break;
+            }
             System.out.println(karta.getSymbol() + ' ' + karta.getNumber());
             cardsP1.add(karta);
         }
@@ -417,7 +479,7 @@ public class IngameController extends HelloApplication{
         for(int i=0;i<5;i++)
         {
             Card karta;
-            do
+            while(true)
             {
                 String s = new String();
                 int los = rand.nextInt(4);
@@ -432,7 +494,9 @@ public class IngameController extends HelloApplication{
                 int los2 = rand.nextInt(2, 15);
                 String a = Integer.toString(los2);
                 karta = new Card(s, a);
-            }while(isInHandP1(karta)||isInHandP2(karta));
+                if(!isInHandP1(karta)&&!isInHandP2(karta))
+                    break;
+            }
             System.out.println(karta.getSymbol() + ' ' + karta.getNumber());
             cardsP2.add(karta);
         }
@@ -481,7 +545,7 @@ public class IngameController extends HelloApplication{
             String symbol= cards.get(index).getSymbol();
             String number= cards.get(index).getNumber();
             String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s);
+            System.out.println(s+" do gracza");
             Image img = new Image(new FileInputStream(s));
             BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
             BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
