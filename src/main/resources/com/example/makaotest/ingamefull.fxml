@@ -28,7 +28,7 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <Button fx:id="p1Dobierz" layoutX="686.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#onDobierz1Click" text="Dobierz">
+            <Button fx:id="p1dobierz" layoutX="686.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#onDobierz1Click" text="Dobierz">
                <effect>
                   <DropShadow />
                </effect>
@@ -61,126 +61,71 @@
                   <Font name="Consolas Bold" size="39.0" />
                </font>
             </Button>
-            <ImageView fx:id="p11" fitHeight="111.0" fitWidth="79.0" layoutX="74.0" layoutY="375.0" styleClass="karta">
+            <Button id="p11" fx:id="p11" layoutX="74.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p12" fitHeight="111.0" fitWidth="79.0" layoutX="114.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p12" fx:id="p12" layoutX="114.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p13" fitHeight="111.0" fitWidth="79.0" layoutX="153.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p13" fx:id="p13" layoutX="150.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p14" fitHeight="111.0" fitWidth="79.0" layoutX="193.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p14" fx:id="p14" layoutX="189.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p15" fitHeight="111.0" fitWidth="79.0" layoutX="233.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p15" fx:id="p15" layoutX="229.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p16" fitHeight="111.0" fitWidth="79.0" layoutX="268.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p16" fx:id="p16" layoutX="268.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p17" fitHeight="111.0" fitWidth="79.0" layoutX="308.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p17" fx:id="p17" layoutX="308.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p18" fitHeight="111.0" fitWidth="79.0" layoutX="348.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p18" fx:id="p18" layoutX="348.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p19" fitHeight="111.0" fitWidth="79.0" layoutX="388.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p19" fx:id="p19" layoutX="383.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p110" fitHeight="111.0" fitWidth="79.0" layoutX="427.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p110" fx:id="p110" layoutX="423.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p111" fitHeight="111.0" fitWidth="79.0" layoutX="462.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p111" fx:id="p111" layoutX="463.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p112" fitHeight="111.0" fitWidth="79.0" layoutX="502.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p112" fx:id="p112" layoutX="502.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p113" fitHeight="111.0" fitWidth="79.0" layoutX="542.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p113" fx:id="p113" layoutX="543.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-               <image>
-                  <Image url="@Karty/2d.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="p114" fitHeight="111.0" fitWidth="79.0" layoutX="582.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p114" fx:id="p114" layoutX="583.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p115" fitHeight="111.0" fitWidth="79.0" layoutX="622.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p115" fx:id="p115" layoutX="622.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p116" fitHeight="111.0" fitWidth="79.0" layoutX="662.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p116" fx:id="p116" layoutX="662.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP1" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <AnchorPane fx:id="p1invisible" layoutX="1.0" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" />
+               </effect></Button>
+            <AnchorPane fx:id="p1invisible" layoutX="1.0" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="player2" layoutX="800.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css" AnchorPane.rightAnchor="0.0">
@@ -234,87 +179,71 @@
                   <Font name="Consolas Bold" size="39.0" />
                </font>
             </Button>
-            <ImageView fx:id="p21" fitHeight="111.0" fitWidth="79.0" layoutX="74.0" layoutY="375.0" styleClass="karta">
+            <Button id="p21" fx:id="p21" layoutX="74.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p22" fitHeight="111.0" fitWidth="79.0" layoutX="114.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p22" fx:id="p22" layoutX="114.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p23" fitHeight="111.0" fitWidth="79.0" layoutX="153.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p23" fx:id="p23" layoutX="150.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p24" fitHeight="111.0" fitWidth="79.0" layoutX="193.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p24" fx:id="p24" layoutX="189.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p25" fitHeight="111.0" fitWidth="79.0" layoutX="233.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p25" fx:id="p25" layoutX="229.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p26" fitHeight="111.0" fitWidth="79.0" layoutX="268.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p26" fx:id="p26" layoutX="268.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p27" fitHeight="111.0" fitWidth="79.0" layoutX="308.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p27" fx:id="p27" layoutX="308.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p28" fitHeight="111.0" fitWidth="79.0" layoutX="348.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p28" fx:id="p28" layoutX="348.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p29" fitHeight="111.0" fitWidth="79.0" layoutX="388.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p29" fx:id="p29" layoutX="383.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p210" fitHeight="111.0" fitWidth="79.0" layoutX="427.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p210" fx:id="p210" layoutX="423.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p211" fitHeight="111.0" fitWidth="79.0" layoutX="462.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p211" fx:id="p211" layoutX="463.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p212" fitHeight="111.0" fitWidth="79.0" layoutX="502.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p212" fx:id="p212" layoutX="502.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p213" fitHeight="111.0" fitWidth="79.0" layoutX="542.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p213" fx:id="p213" layoutX="543.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p214" fitHeight="111.0" fitWidth="79.0" layoutX="582.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p214" fx:id="p214" layoutX="583.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p215" fitHeight="111.0" fitWidth="79.0" layoutX="622.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p215" fx:id="p215" layoutX="622.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <ImageView fx:id="p216" fitHeight="111.0" fitWidth="79.0" layoutX="662.0" layoutY="375.0" styleClass="karta">
+               </effect></Button>
+            <Button id="p216" fx:id="p216" layoutX="662.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect>
-            </ImageView>
-            <AnchorPane fx:id="p2invisible" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" />
+               </effect></Button>
+            <AnchorPane fx:id="p2invisible" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
          </children>
       </AnchorPane>
    </children>

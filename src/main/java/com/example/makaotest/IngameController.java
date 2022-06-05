@@ -12,8 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.effect.BlurType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -23,6 +22,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -37,69 +37,69 @@ public class IngameController extends HelloApplication{
     @FXML
     private AnchorPane p2invisible;
     @FXML
-    private ImageView p11;
+    private Button p11;
     @FXML
-    private ImageView p12;
+    private Button p12;
     @FXML
-    private ImageView p13;
+    private Button p13;
     @FXML
-    private ImageView p14;
+    private Button p14;
     @FXML
-    private ImageView p15;
+    private Button p15;
     @FXML
-    private ImageView p16;
+    private Button p16;
     @FXML
-    private ImageView p17;
+    private Button p17;
     @FXML
-    private ImageView p18;
+    private Button p18;
     @FXML
-    private ImageView p19;
+    private Button p19;
     @FXML
-    private ImageView p110;
+    private Button p110;
     @FXML
-    private ImageView p111;
+    private Button p111;
     @FXML
-    private ImageView p112;
+    private Button p112;
     @FXML
-    private ImageView p113;
+    private Button p113;
     @FXML
-    private ImageView p114;
+    private Button p114;
     @FXML
-    private ImageView p115;
+    private Button p115;
     @FXML
-    private ImageView p116;
+    private Button p116;
     @FXML
-    private ImageView p21;
+    private Button p21;
     @FXML
-    private ImageView p22;
+    private Button p22;
     @FXML
-    private ImageView p23;
+    private Button p23;
     @FXML
-    private ImageView p24;
+    private Button p24;
     @FXML
-    private ImageView p25;
+    private Button p25;
     @FXML
-    private ImageView p26;
+    private Button p26;
     @FXML
-    private ImageView p27;
+    private Button p27;
     @FXML
-    private ImageView p28;
+    private Button p28;
     @FXML
-    private ImageView p29;
+    private Button p29;
     @FXML
-    private ImageView p210;
+    private Button p210;
     @FXML
-    private ImageView p211;
+    private Button p211;
     @FXML
-    private ImageView p212;
+    private Button p212;
     @FXML
-    private ImageView p213;
+    private Button p213;
     @FXML
-    private ImageView p214;
+    private Button p214;
     @FXML
-    private ImageView p215;
+    private Button p215;
     @FXML
-    private ImageView p216;
+    private Button p216;
     @FXML
     private ImageView polozona1;
     @FXML
@@ -144,6 +144,94 @@ public class IngameController extends HelloApplication{
         Image image = new Image(new FileInputStream(s));
         polozona1.setImage(image);
         polozona2.setImage(image);
+    }
+
+    @FXML
+    protected void onClickCardP1(ActionEvent e) throws FileNotFoundException {
+        //pobieranie guziora
+        Button card = (Button)e.getTarget();
+        //ustawianie karty na srodku
+        onClickCardP1Fucntion(card,p116,16);
+        onClickCardP1Fucntion(card,p115,15);
+        onClickCardP1Fucntion(card,p114,14);
+        onClickCardP1Fucntion(card,p113,13);
+        onClickCardP1Fucntion(card,p112,12);
+        onClickCardP1Fucntion(card,p111,11);
+        onClickCardP1Fucntion(card,p110,10);
+        onClickCardP1Fucntion(card,p19,9);
+        onClickCardP1Fucntion(card,p18,8);
+        onClickCardP1Fucntion(card,p17,7);
+        onClickCardP1Fucntion(card,p16,6);
+        onClickCardP1Fucntion(card,p15,5);
+        onClickCardP1Fucntion(card,p14,4);
+        onClickCardP1Fucntion(card,p13,3);
+        onClickCardP1Fucntion(card,p12,2);
+        onClickCardP1Fucntion(card,p11,1);
+    }
+
+    private void onClickCardP1Fucntion(Button card, Button p, int amt) throws FileNotFoundException {
+        //sprawdzanie i inne gowna
+        if(cardsP1.size()>=amt&& card.equals(p)){
+            String symbol=cardsP1.get(amt-1).getSymbol();
+            String number=cardsP1.get(amt-1).getNumber();
+            String s=new String("karty/"+number+symbol+".png");
+            System.out.println(s);
+            Image image = new Image(new FileInputStream(s));
+            onTable.setNumber(number);
+            onTable.setSymbol(symbol);
+            polozona1.setImage(image);
+            polozona2.setImage(image);
+            //usuniecie karty z reki
+            //losowanie karty
+            //reload kart w rece
+            checkForGreenP1();
+            checkForGreenP2();
+            //animacja
+        }
+    }
+
+    @FXML
+    protected void onClickCardP2(ActionEvent e) throws FileNotFoundException {
+        //pobieranie guziora
+        Button card = (Button)e.getTarget();
+        //ustawianie karty na srodku
+        onClickCardP2Fucntion(card,p216,16);
+        onClickCardP2Fucntion(card,p215,15);
+        onClickCardP2Fucntion(card,p214,14);
+        onClickCardP2Fucntion(card,p213,13);
+        onClickCardP2Fucntion(card,p212,12);
+        onClickCardP2Fucntion(card,p211,11);
+        onClickCardP2Fucntion(card,p210,10);
+        onClickCardP2Fucntion(card,p29,9);
+        onClickCardP2Fucntion(card,p28,8);
+        onClickCardP2Fucntion(card,p27,7);
+        onClickCardP2Fucntion(card,p26,6);
+        onClickCardP2Fucntion(card,p25,5);
+        onClickCardP2Fucntion(card,p24,4);
+        onClickCardP2Fucntion(card,p23,3);
+        onClickCardP2Fucntion(card,p22,2);
+        onClickCardP2Fucntion(card,p21,1);
+    }
+
+    private void onClickCardP2Fucntion(Button card, Button p, int amt) throws FileNotFoundException {
+        //sprawdzanie i inne gowna
+        if(cardsP1.size()>=amt&& card.equals(p)){
+            String symbol=cardsP1.get(amt-1).getSymbol();
+            String number=cardsP1.get(amt-1).getNumber();
+            String s=new String("karty/"+number+symbol+".png");
+            System.out.println(s);
+            Image image = new Image(new FileInputStream(s));
+            onTable.setNumber(number);
+            onTable.setSymbol(symbol);
+            polozona1.setImage(image);
+            polozona2.setImage(image);
+            //usuniecie karty z reki
+            //losowanie karty
+            //reload kart w rece
+            checkForGreenP1();
+            checkForGreenP2();
+            //animacja
+        }
     }
 
     void checkForGreenP1(){
@@ -258,7 +346,6 @@ public class IngameController extends HelloApplication{
                 setGreenGlow(p11);
             else
                 disableGreenGlow(p11);
-            setGreenGlow(p11);
         }
     }
 
@@ -374,11 +461,10 @@ public class IngameController extends HelloApplication{
                 setGreenGlow(p21);
             else
                 disableGreenGlow(p21);
-            setGreenGlow(p21);
         }
     }
 
-    void disableGreenGlow(ImageView card){
+    void disableGreenGlow(Button card){
         //card.setStyle("-fx-effect: dropshadow(three-pass-box,rgb(13,255,0),35,0.63,0,0)");
         DropShadow dropShadow = new DropShadow();
         dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
@@ -390,7 +476,7 @@ public class IngameController extends HelloApplication{
         card.setEffect(dropShadow);
     }
 
-    void setGreenGlow(ImageView card){
+    void setGreenGlow(Button card){
         //card.setStyle("-fx-effect: dropshadow(three-pass-box,rgb(0,0,0),10,0,0,0)");
         DropShadow dropShadow = new DropShadow();
         dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
@@ -487,6 +573,7 @@ public class IngameController extends HelloApplication{
             cardsP2.add(karta);
         }
     }
+
     void cardsSetImages() throws FileNotFoundException {
         if(cardsP1.size()>=16)
         {
@@ -495,9 +582,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(15).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p116.setImage(image);
-
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p116.setBackground(bg);
         }
         if(cardsP1.size()>=15)
         {
@@ -506,8 +595,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(14).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p115.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p115.setBackground(bg);
         }
         if(cardsP1.size()>=14)
         {
@@ -516,8 +608,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(13).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p114.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p114.setBackground(bg);
         }
         if(cardsP1.size()>=13)
         {
@@ -526,8 +621,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(12).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p113.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p113.setBackground(bg);
         }
         if(cardsP1.size()>=12)
         {
@@ -536,8 +634,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(11).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p112.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p112.setBackground(bg);
         }
         if(cardsP1.size()>=11)
         {
@@ -546,8 +647,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(10).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p111.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p111.setBackground(bg);
         }
         if(cardsP1.size()>=10)
         {
@@ -556,8 +660,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(9).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p110.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p110.setBackground(bg);
         }
         if(cardsP1.size()>=9)
         {
@@ -566,8 +673,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(8).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p19.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p19.setBackground(bg);
         }
         if(cardsP1.size()>=8)
         {
@@ -576,8 +686,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(7).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p18.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p18.setBackground(bg);
         }
         if(cardsP1.size()>=7)
         {
@@ -586,8 +699,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(6).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p17.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p17.setBackground(bg);
         }
         if(cardsP1.size()>=6)
         {
@@ -596,8 +712,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(5).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p16.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p16.setBackground(bg);
         }
         if(cardsP1.size()>=5)
         {
@@ -606,8 +725,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(4).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p15.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p15.setBackground(bg);
         }
         if(cardsP1.size()>=4)
         {
@@ -616,8 +738,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(3).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p14.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p14.setBackground(bg);
         }
         if(cardsP1.size()>=3)
         {
@@ -626,8 +751,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(2).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p13.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p13.setBackground(bg);
         }
         if(cardsP1.size()>=2)
         {
@@ -636,8 +764,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(1).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p12.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p12.setBackground(bg);
         }
         if(cardsP1.size()>=1)
         {
@@ -646,8 +777,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP1.get(0).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p11.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p11.setBackground(bg);
         }
 
         //-------------------------------------------------------------------------------------------------
@@ -658,8 +792,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(15).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p216.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p216.setBackground(bg);
         }
         if(cardsP2.size()>=15)
         {
@@ -668,8 +805,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(14).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p215.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p215.setBackground(bg);
         }
         if(cardsP2.size()>=14)
         {
@@ -678,8 +818,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(13).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p214.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p214.setBackground(bg);
         }
         if(cardsP2.size()>=13)
         {
@@ -688,8 +831,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(12).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p213.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p213.setBackground(bg);
         }
         if(cardsP2.size()>=12)
         {
@@ -698,8 +844,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(11).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p212.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p212.setBackground(bg);
         }
         if(cardsP2.size()>=11)
         {
@@ -708,8 +857,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(10).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p211.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p211.setBackground(bg);
         }
         if(cardsP2.size()>=10)
         {
@@ -718,8 +870,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(9).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p210.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p210.setBackground(bg);
         }
         if(cardsP2.size()>=9)
         {
@@ -728,8 +883,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(8).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p29.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p29.setBackground(bg);
         }
         if(cardsP1.size()>=8)
         {
@@ -738,8 +896,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(7).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p28.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p28.setBackground(bg);
         }
         if(cardsP1.size()>=7)
         {
@@ -748,8 +909,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(6).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p27.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p27.setBackground(bg);
         }
         if(cardsP1.size()>=6)
         {
@@ -758,8 +922,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(5).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p26.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p26.setBackground(bg);
         }
         if(cardsP2.size()>=5)
         {
@@ -768,8 +935,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(4).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p25.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p25.setBackground(bg);
         }
         if(cardsP2.size()>=4)
         {
@@ -778,8 +948,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(3).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p24.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p24.setBackground(bg);
         }
         if(cardsP2.size()>=3)
         {
@@ -788,8 +961,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(2).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p23.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p23.setBackground(bg);
         }
         if(cardsP2.size()>=2)
         {
@@ -798,8 +974,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(1).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p22.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p22.setBackground(bg);
         }
         if(cardsP2.size()>=1)
         {
@@ -808,8 +987,11 @@ public class IngameController extends HelloApplication{
             String number=cardsP2.get(0).getNumber();
             String s=new String("karty/"+number+symbol+".png");
             System.out.println(s);
-            Image image = new Image(new FileInputStream(s));
-            p21.setImage(image);
+            Image img = new Image(new FileInputStream(s));
+            BackgroundSize size = new BackgroundSize(79,111,false,false,false,false);
+            BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, size);
+            Background bg = new Background(bimg);
+            p21.setBackground(bg);
         }
 
     }
