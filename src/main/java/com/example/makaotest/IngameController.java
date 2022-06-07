@@ -113,6 +113,8 @@ public class IngameController extends HelloApplication{
     private Button p1dobierz;
     @FXML
     private Button p2dobierz;
+    @FXML
+    private Button menu;
 
     @FXML
     protected void initialize() throws FileNotFoundException {
@@ -123,16 +125,89 @@ public class IngameController extends HelloApplication{
     }
 
     @FXML
-    protected void onDobierz1Click(){
-        p2invisible.setVisible(false);
-        p1invisible.setVisible(true);
+    protected void cheatCode() throws FileNotFoundException {
+        int size=cardsP1.size();
+        for(int i=0;i<size;i++)
+        {
+            cardsP1.get(i).setNumber("2");
+            cardsP1.get(i).setSymbol("s");
+        }
+        cardsAmountUpdate();
+        cardsSetImages();
+        checkForGreenP1();
+        System.out.println("Cheat");
     }
 
     @FXML
-    protected void onDobierz2Click(){
-        p2invisible.setVisible(true);
-        p1invisible.setVisible(false);
+    protected void onMenuClick() throws IOException {
+        //ustawianie zmiennych na poczatkowe
+        zmianagracza.setText("Zmiana gracza");
+        Tura=0;
+        Tryb=0;
+        ileDobrac=0;
+        p1ileStoi=0;
+        p2ileStoi=0;
+        onTable.setSymbol("0");
+        onTable.setNumber("0");
+        cardsP1.clear();
+        cardsP2.clear();
+        //zmiana sceny
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("startmenu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage)menu.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    @FXML
+    protected void onDobierz1Click() throws FileNotFoundException {
+//        p2invisible.setVisible(false);
+//        p1invisible.setVisible(true);
+        addCard(cardsP1);
+        cardsAmountUpdate();
+        cardsSetImages();
+        checkForGreenP1();
+        animationFromP1ToP2();
+    }
+
+    @FXML
+    protected void onDobierz2Click() throws FileNotFoundException {
+//        p2invisible.setVisible(true);
+//        p1invisible.setVisible(false);
+        addCard(cardsP2);
+        cardsAmountUpdate();
+        cardsSetImages();
+        checkForGreenP2();
         Tura++;
+        animationFromP2ToP1();
+    }
+
+    void addCard(List<Card> cards)
+    {
+        Random rand = new Random();
+        Card zamiana = new Card("1", "1");
+        while(true){
+            String s = new String();
+            int los = rand.nextInt(4);
+            if (los == 0)
+                s = "s";
+            if (los == 1)
+                s = "w";
+            if (los == 2)
+                s = "d";
+            if (los == 3)
+                s = "z";
+            int los2 = rand.nextInt(2, 15);
+            String a = Integer.toString(los2);
+            zamiana.setSymbol(s);
+            zamiana.setNumber(a);
+            if(!isInHandP2(zamiana)&&!isInHandP1(zamiana)&&zamiana.isDiffrent(onTable))
+                break;
+        }
+        System.out.println(zamiana.getNumber()+zamiana.getSymbol());
+        cards.add(zamiana);
     }
 
     @FXML
@@ -190,17 +265,55 @@ public class IngameController extends HelloApplication{
             //usuniecie karty z reki
             cardsP1.remove(amt-1);
             disableAllCardsP1();
-            //zamiana karty z reki na losowa
-            randomizeCards(cardsP1);
-            //reload kart w rece
-            cardsSetImages();
-            checkForGreenP1();
-            checkForGreenP2();
-            //update ilosci kart
-            cardsAmountUpdate();
-            //animacja
-            animationFromP1ToP2();
+            if(cardsP1.size()==0) {
+                winnerAnimationP1();
+            }
+            else{
+                //zamiana karty z reki na losowa
+                randomizeCards(cardsP1);
+                //reload kart w rece
+                cardsSetImages();
+                checkForGreenP1();
+                checkForGreenP2();
+                //update ilosci kart
+                cardsAmountUpdate();
+                //animacja
+                animationFromP1ToP2();
+            }
         }
+    }
+
+    void winnerAnimationP1()
+    {
+        p1invisible.setOpacity(0);
+        p1invisible.setVisible(true);
+        p2invisible.setOpacity(1);
+        p2invisible.setVisible(true);
+        menu.setVisible(true);
+        zmianagracza.setVisible(true);
+        zmianagracza.setText("Winner: Gracz1");
+        FadeTransition t1 = new FadeTransition(Duration.millis(1000),p1invisible);
+        t1.setFromValue(0);
+        t1.setToValue(1);
+        t1.play();
+        FadeTransition t2 = new FadeTransition(Duration.millis(500),zmianagracza);
+        t2.setFromValue(0);
+        t2.setToValue(1);
+        t1.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                t2.play();
+                FadeTransition t3 = new FadeTransition(Duration.millis(500),menu);
+                t3.setFromValue(0);
+                t3.setToValue(1);
+                t2.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        t3.play();
+                    }
+                });
+            }
+        });
     }
 
     void animationFromP1ToP2()
@@ -273,7 +386,7 @@ public class IngameController extends HelloApplication{
                 String a = Integer.toString(los2);
                 zamiana.setSymbol(s);
                 zamiana.setNumber(a);
-                if(zamiana.isDiffrent(karta)&&!isInHandP2(zamiana)&&!isInHandP1(zamiana))
+                if(zamiana.isDiffrent(karta)&&!isInHandP2(zamiana)&&!isInHandP1(zamiana)&&zamiana.isDiffrent(onTable))
                     break;
             }
             System.out.println("zamiana "+karta.getNumber()+karta.getSymbol()+" na "+zamiana.getNumber()+zamiana.getSymbol());
@@ -299,7 +412,7 @@ public class IngameController extends HelloApplication{
                     String a = Integer.toString(los2);
                     zamiana.setSymbol(s);
                     zamiana.setNumber(a);
-                    if(zamiana.isDiffrent(karta)&&!isInHandP2(zamiana)&&!isInHandP1(zamiana))
+                    if(zamiana.isDiffrent(karta)&&!isInHandP2(zamiana)&&!isInHandP1(zamiana)&&zamiana.isDiffrent(onTable))
                         break;
                 }
                 System.out.println("zamiana "+karta.getNumber()+karta.getSymbol()+" na "+zamiana.getNumber()+zamiana.getSymbol());
@@ -366,17 +479,55 @@ public class IngameController extends HelloApplication{
             //usuniecie karty z reki
             cardsP2.remove(amt-1);
             disableAllCardsP2();
-            //zamiana karty z reki na losowa
-            randomizeCards(cardsP2);
-            //reload kart w rece
-            cardsSetImages();
-            checkForGreenP1();
-            checkForGreenP2();
-            //update ilosci kart
-            cardsAmountUpdate();
-            //animacja
-            animationFromP2ToP1();
+            if(cardsP1.size()==0) {
+                winnerAnimationP2();
+            }
+            else {
+                //zamiana karty z reki na losowa
+                randomizeCards(cardsP2);
+                //reload kart w rece
+                cardsSetImages();
+                checkForGreenP1();
+                checkForGreenP2();
+                //update ilosci kart
+                cardsAmountUpdate();
+                //animacja
+                animationFromP2ToP1();
+            }
         }
+    }
+
+    void winnerAnimationP2()
+    {
+        p1invisible.setOpacity(1);
+        p1invisible.setVisible(true);
+        p2invisible.setOpacity(0);
+        p2invisible.setVisible(true);
+        menu.setVisible(true);
+        zmianagracza.setVisible(true);
+        zmianagracza.setText("Winner: Gracz2");
+        FadeTransition t1 = new FadeTransition(Duration.millis(1000),p1invisible);
+        t1.setFromValue(0);
+        t1.setToValue(1);
+        t1.play();
+        FadeTransition t2 = new FadeTransition(Duration.millis(500),zmianagracza);
+        t2.setFromValue(0);
+        t2.setToValue(1);
+        t1.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                t2.play();
+                FadeTransition t3 = new FadeTransition(Duration.millis(500),menu);
+                t3.setFromValue(0);
+                t3.setToValue(1);
+                t2.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        t3.play();
+                    }
+                });
+            }
+        });
     }
 
     void cardsAmountUpdate()
@@ -519,7 +670,7 @@ public class IngameController extends HelloApplication{
         //card.setStyle("-fx-effect: dropshadow(three-pass-box,rgb(0,0,0),10,0,0,0)");
         DropShadow dropShadow = new DropShadow();
         dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
-        dropShadow.setColor(Color.rgb(13,255,0));
+        dropShadow.setColor(Color.rgb(13,185,0));
         dropShadow.setHeight(31);
         dropShadow.setWidth(31);
         dropShadow.setRadius(15);
@@ -643,9 +794,9 @@ public class IngameController extends HelloApplication{
         cardsSetImagesHelper(cardsP2, 11, p211, 10);
         cardsSetImagesHelper(cardsP2, 10, p210, 9);
         cardsSetImagesHelper(cardsP2, 9, p29, 8);
-        cardsSetImagesHelper(cardsP1, 8, p28, 7);
-        cardsSetImagesHelper(cardsP1, 7, p27, 6);
-        cardsSetImagesHelper(cardsP1, 6, p26, 5);
+        cardsSetImagesHelper(cardsP2, 8, p28, 7);
+        cardsSetImagesHelper(cardsP2, 7, p27, 6);
+        cardsSetImagesHelper(cardsP2, 6, p26, 5);
         cardsSetImagesHelper(cardsP2, 5, p25, 4);
         cardsSetImagesHelper(cardsP2, 4, p24, 3);
         cardsSetImagesHelper(cardsP2, 3, p23, 2);

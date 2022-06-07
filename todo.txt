@@ -1,4 +1,10 @@
 1.Poprawa bledow wyswietlania na zielono - chyba done
 2.Poprawa bledow w losowaniu kart (czasami wylosuja taka sama karte 2 razy u jednego gracza lub taka sama karte u obu graczy) - chyba done
-3.Update ilosci kart przeciwnika - cardsAmountUpdate()
-4.Dobieranie kart
+3.Update ilosci kart przeciwnika - chyba done (cardsAmountUpdate())
+4.Dobieranie kart - chyba done
+5.Działanie kart specjalnych
+6.Sprawdzanie wygranej - chyba done
+7.Dodac przycisk wyjscia do menu po wygranej i zresetowac wszystkie zmienne zeby nie bylo problemu przy next gierce - chyba done
+8.Kolorowanie przyciskow przy najechaniu myszka - done
+9.Jakaś informacja o ilości tur ile musi gracz czekać/ile kart musi dobrać
+10.chyba tyle, jak coś mi sie przypomi to dodam
