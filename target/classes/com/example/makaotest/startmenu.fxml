@@ -12,7 +12,7 @@
             <Font name="Consolas Bold" size="40.0" />
          </font>
       </Text>
-      <Button fx:id="newGame" layoutX="314.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#onNewGameButtonClick" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #003615;" text="Nowa Gra" textFill="WHITE">
+      <Button fx:id="newGame" layoutX="314.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#onNewGameButtonClick" prefHeight="40.0" prefWidth="172.0" styleClass="clickablebtn" stylesheets="@style.css" text="Nowa Gra" textFill="WHITE">
          <font>
             <Font name="Consolas Bold" size="30.0" />
          </font>

@@ -8,3 +8,23 @@
 	-fx-scale-y: 1.5;
 	-fx-scale-z: 1.5;
 }
+
+.clickablebtn{
+	-fx-background-color: #003615;
+}
+
+.clickablebtn:hover{
+	-fx-background-color: #00bb4f;
+}
+
+.clickablebtn2{
+	-fx-background-color: #005221;
+}
+
+.clickablebtn2:hover{
+	-fx-background-color: #00bb4f;
+}
+
+.texty:hover{
+	-fx-text-fill: #55734b;
+}

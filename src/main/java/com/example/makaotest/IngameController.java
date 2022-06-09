@@ -129,8 +129,8 @@ public class IngameController extends HelloApplication{
         int size=cardsP1.size();
         for(int i=0;i<size;i++)
         {
-            cardsP1.get(i).setNumber("2");
-            cardsP1.get(i).setSymbol("s");
+            cardsP1.get(i).setNumber(onTable.getNumber());
+            cardsP1.get(i).setSymbol(onTable.getSymbol());
         }
         cardsAmountUpdate();
         cardsSetImages();

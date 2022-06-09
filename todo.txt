@@ -1,5 +1,5 @@
 1.Poprawa bledow wyswietlania na zielono - chyba done
-2.Poprawa bledow w losowaniu kart (czasami wylosuja taka sama karte 2 razy u jednego gracza lub taka sama karte u obu graczy) - chyba done
+2.Poprawa bledow w losowaniu kart (czasami wylosuja taka sama karte 2 razy u jednego gracza lub taka sama karte u obu graczy) - NIE DONE
 3.Update ilosci kart przeciwnika - chyba done (cardsAmountUpdate())
 4.Dobieranie kart - chyba done
 5.Działanie kart specjalnych
