@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class HelloApplication extends Application {
     public static int Tryb=0; //0-Niski, 1-Wysoki
     public static int Tura=0;
-    public static int ileDobrac=0;
+    public static int ileDobrac=1;
 
     public List<Card> cardsP1 =new ArrayList<>();
     public static int p1ileStoi=0;
@@ -24,9 +24,9 @@ public class HelloApplication extends Application {
     public Card onTable = new Card("0","0");
 
     public String currentNumerek = "0";
-    public int ileTurNumerek=0;
+    public static int ileTurNumerek=0;
     public String currentColorek = "0";
-    public int ileTurColorek=0;
+    public static int ileTurColorek=0;
 
     @Override
     public void start(Stage stage) throws IOException {

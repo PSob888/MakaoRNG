@@ -41,6 +41,14 @@ public class IngameController extends HelloApplication{
     @FXML
     private Text zmianagracza;
     @FXML
+    private Text p1wym;
+    @FXML
+    private Text p2wym;
+    @FXML
+    private Text p1wymagania;
+    @FXML
+    private Text p2wymagania;
+    @FXML
     private AnchorPane p1invisible;
     @FXML
     private AnchorPane p2invisible;
@@ -132,13 +140,38 @@ public class IngameController extends HelloApplication{
     private AnchorPane p1WyborBlokada;
     @FXML
     private AnchorPane p2WyborBlokada;
+    @FXML
+    private AnchorPane p2jakGrac;
+    @FXML
+    private AnchorPane p1jakGrac;
 
     @FXML
     protected void initialize() throws FileNotFoundException {
         kartTest();
         checkForGreenP1();
         checkForGreenP2();
+        dobranieSetter();
         System.out.println("Tryb: "+Tryb);
+    }
+
+    @FXML
+    protected void onPytanie1Click(){
+        p1jakGrac.setVisible(true);
+    }
+
+    @FXML
+    protected void onPytanie2Click(){
+        p2jakGrac.setVisible(true);
+    }
+
+    @FXML
+    protected void onPytanie1Off(){
+        p1jakGrac.setVisible(false);
+    }
+
+    @FXML
+    protected void onPytanie2Off(){
+        p2jakGrac.setVisible(false);
     }
 
     @FXML
@@ -161,9 +194,13 @@ public class IngameController extends HelloApplication{
         zmianagracza.setText("Zmiana gracza");
         Tura=0;
         Tryb=0;
-        ileDobrac=0;
+        ileDobrac=1;
         p1ileStoi=0;
         p2ileStoi=0;
+        ileTurNumerek=0;
+        ileTurColorek=0;
+        currentColorek="0";
+        currentNumerek="0";
         onTable.setSymbol("0");
         onTable.setNumber("0");
         cardsP1.clear();
@@ -182,10 +219,17 @@ public class IngameController extends HelloApplication{
     protected void onDobierz1Click() throws FileNotFoundException {
 //        p2invisible.setVisible(false);
 //        p1invisible.setVisible(true);
-        addCard(cardsP1);
+        for(int i=0;i<ileDobrac;i++)
+            addCard(cardsP1);
+        ileDobrac=1;
         cardsAmountUpdate();
         cardsSetImages();
         checkForGreenP1();
+        if(ileTurColorek>0)
+            ileTurColorek--;
+        if(ileTurNumerek>0)
+            ileTurNumerek--;
+        dobranieSetter();
         animationFromP1ToP2();
     }
 
@@ -193,11 +237,18 @@ public class IngameController extends HelloApplication{
     protected void onDobierz2Click() throws FileNotFoundException {
 //        p2invisible.setVisible(true);
 //        p1invisible.setVisible(false);
-        addCard(cardsP2);
+        for(int i=0;i<ileDobrac;i++)
+            addCard(cardsP2);
+        ileDobrac=1;
         cardsAmountUpdate();
         cardsSetImages();
         checkForGreenP2();
+        if(ileTurColorek>0)
+            ileTurColorek--;
+        if(ileTurNumerek>0)
+            ileTurNumerek--;
         Tura++;
+        dobranieSetter();
         animationFromP2ToP1();
     }
 
@@ -205,7 +256,7 @@ public class IngameController extends HelloApplication{
     {
         Random rand = new Random();
         Card zamiana = new Card("1", "1");
-        while(true){
+        while (true) {
             String s = new String();
             int los = rand.nextInt(4);
             if (los == 0)
@@ -220,11 +271,12 @@ public class IngameController extends HelloApplication{
             String a = Integer.toString(los2);
             zamiana.setSymbol(s);
             zamiana.setNumber(a);
-            if(!isInHandP2(zamiana)&&!isInHandP1(zamiana)&&zamiana.isDiffrent(onTable))
+            if (!isInHandP2(zamiana) && !isInHandP1(zamiana) && zamiana.isDiffrent(onTable))
                 break;
         }
         System.out.println(zamiana.getNumber()+zamiana.getSymbol());
         cards.add(zamiana);
+
     }
 
     @FXML
@@ -265,28 +317,33 @@ public class IngameController extends HelloApplication{
         onClickCardP1Fucntion(card,p13,3);
         onClickCardP1Fucntion(card,p12,2);
         onClickCardP1Fucntion(card,p11,1);
+        dobranieSetter();
     }
 
     private void onClickCardP1Fucntion(Button card, Button p, int amt) throws FileNotFoundException {
         //sprawdzanie i inne gowna
         if(cardsP1.size()>=amt&&card.equals(p)&&(cardsP1.get(amt-1).isSimilar(onTable)||Objects.equals(onTable.getNumber(), "0"))){
-            Card karta=cardsP1.get(amt-1);
-            String symbol=cardsP1.get(amt-1).getSymbol();
-            String number=cardsP1.get(amt-1).getNumber();
-            String s=new String("karty/"+number+symbol+".png");
-            System.out.println(s+" Na srodek");
+            Card karta = cardsP1.get(amt - 1);
+            String symbol = cardsP1.get(amt - 1).getSymbol();
+            String number = cardsP1.get(amt - 1).getNumber();
+            String s = new String("karty/" + number + symbol + ".png");
+            System.out.println(s + " Na srodek");
             Image image = new Image(new FileInputStream(s));
             onTable.setNumber(number);
             onTable.setSymbol(symbol);
             polozona1.setImage(image);
             polozona2.setImage(image);
             //usuniecie karty z reki
-            cardsP1.remove(amt-1);
+            specialCardsDetectorP1(karta);
+            cardsP1.remove(amt - 1);
             disableAllCardsP1();
-            if(cardsP1.size()==0) {
+            if(ileTurColorek>0)
+                ileTurColorek--;
+            if(ileTurNumerek>0)
+                ileTurNumerek--;
+            if (cardsP1.size() == 0) {
                 winnerAnimationP1();
-            }
-            else{
+            } else {
                 //zamiana karty z reki na losowa
                 randomizeCards(cardsP1);
                 //reload kart w rece
@@ -296,8 +353,6 @@ public class IngameController extends HelloApplication{
                 //update ilosci kart
                 cardsAmountUpdate();
                 //animacja
-                if(specialCardsDetectorP1(karta))
-                    return;
                 animationFromP1ToP2();
             }
         }
@@ -308,81 +363,44 @@ public class IngameController extends HelloApplication{
     //5. Królowa - usuniecie kart do dodania i 4
     //4. As - zmiana koloru
     //5. Jopek - Żądanie karty
-    private boolean specialCardsDetectorP1(Card card)
+    private void specialCardsDetectorP1(Card card)
     {
-        ileDobrac+=specialCardsDobranie(card);
+        ileDobrac=ileDobrac+specialCardsDobranie(card);
 
         p2ileStoi=p1ileStoi+specialCardsCzekanie(card);
         if(specialCardsCzekanie(card)==1)
             p1ileStoi=0;
 
         if(specialCardsKrolowa(card)){
-            ileDobrac=0;
+            ileDobrac=1;
             p1ileStoi=0;
         }
+    }
 
-        if(specialCardsAs(card)){
-            //dopisac asa
-            p1wyborStatusBox.setItems(figury);
-            p1wyborStatusBox.setValue("Kier");
-            p1WyborBlokada.setVisible(true);
-            return true;
-        }
-
-        if(specialCardsJopek(card)){
-            //dopisac jopka
-            p1wyborStatusBox.setItems(numery);
-            p1wyborStatusBox.setValue("5");
-            p1WyborBlokada.setVisible(true);
-            return true;
-        }
-        return false;
+    private void dobranieSetter(){
+        p1wymagania.setText(String.valueOf(ileDobrac));
+        p2wymagania.setText(String.valueOf(ileDobrac));
     }
 //    ObservableList<String> figury = FXCollections.observableArrayList("Kier","Karo","Pik","Trefl");
     @FXML
     protected void onClickWyborButtonP1(ActionEvent e){
         String wybor= (String) p1wyborStatusBox.getValue();
-        if(Objects.equals(wybor, "Kier")){
+        if(Objects.equals(wybor, "Kier")||Objects.equals(wybor, "Karo")||Objects.equals(wybor, "Pik")||Objects.equals(wybor, "Trefl")){
             currentColorek=wybor;
             ileTurColorek=2;
-        }
-        if(Objects.equals(wybor, "Karo")){
-            currentColorek=wybor;
-            ileTurColorek=2;
-        }
-        if(Objects.equals(wybor, "Pik")){
-            currentColorek=wybor;
-            ileTurColorek=2;
-        }
-        if(Objects.equals(wybor, "Trefl")){
-            currentColorek=wybor;
-            ileTurColorek=2;
+            currentNumerek="0";
+            ileTurNumerek=0;
         }
 
-        if(Objects.equals(wybor, "5")){
+        if(Objects.equals(wybor, "5")||Objects.equals(wybor, "6")||Objects.equals(wybor, "7")||Objects.equals(wybor, "8")
+            ||Objects.equals(wybor, "9")||Objects.equals(wybor, "10")){
             currentNumerek=wybor;
             ileTurNumerek=2;
+            currentColorek="0";
+            ileTurColorek=0;
         }
-        if(Objects.equals(wybor, "6")){
-            currentNumerek=wybor;
-            ileTurNumerek=2;
-        }
-        if(Objects.equals(wybor, "7")){
-            currentNumerek=wybor;
-            ileTurNumerek=2;
-        }
-        if(Objects.equals(wybor, "8")){
-            currentNumerek=wybor;
-            ileTurNumerek=2;
-        }
-        if(Objects.equals(wybor, "9")){
-            currentNumerek=wybor;
-            ileTurNumerek=2;
-        }
-        if(Objects.equals(wybor, "10")){
-            currentNumerek=wybor;
-            ileTurNumerek=2;
-        }
+        animationFromP1ToP2();
+        p1WyborBlokada.setVisible(false);
     }
 
     private int specialCardsDobranie(Card card){
@@ -392,7 +410,7 @@ public class IngameController extends HelloApplication{
             amount+=2;
         if(Objects.equals(card.getNumber(), "3")) //trójki
             amount+=3;
-        if(Objects.equals(card.getNumber(), "13")&&(Objects.equals(card.getSymbol(), "s")||Objects.equals(card.getSymbol(), "w")))
+        if(Objects.equals(card.getNumber(), "13")&&((Objects.equals(card.getSymbol(), "s")||Objects.equals(card.getSymbol(), "w"))))
             amount+=5;//króle czerwo i wino
 
         return amount;
@@ -409,15 +427,7 @@ public class IngameController extends HelloApplication{
 
     private boolean specialCardsKrolowa(Card card) //sprawdzanie czy jest krolowa
     {
-        return Objects.equals(card.getSymbol(), "12");
-    }
-
-    private boolean specialCardsAs(Card card){ //sprawdzanie czy jest as
-        return Objects.equals(card.getSymbol(), "14");
-    }
-
-    private boolean specialCardsJopek(Card card){ //sprawdzanie czy jest jopek
-        return Objects.equals(card.getSymbol(), "11");
+        return Objects.equals(card.getNumber(), "12");
     }
 
     void winnerAnimationP1()
@@ -599,6 +609,7 @@ public class IngameController extends HelloApplication{
         onClickCardP2Fucntion(card,p23,3);
         onClickCardP2Fucntion(card,p22,2);
         onClickCardP2Fucntion(card,p21,1);
+        dobranieSetter();
     }
 
     private void onClickCardP2Fucntion(Button card, Button p, int amt) throws FileNotFoundException {
@@ -614,6 +625,7 @@ public class IngameController extends HelloApplication{
             polozona1.setImage(image);
             polozona2.setImage(image);
             //usuniecie karty z reki
+            specialCardsDetectorP1(cardsP2.get(amt-1));
             cardsP2.remove(amt-1);
             disableAllCardsP2();
             if(cardsP1.size()==0) {
@@ -784,11 +796,34 @@ public class IngameController extends HelloApplication{
     private void checkForGreenHelper(List<Card> cards, int x, int index, Button p) {
         if(cards.size()>= x)
         {
-            if(cards.get(index).isSimilar(onTable)|| Objects.equals(onTable.getNumber(), "0"))
-                setGreenGlow(p);
-            else
-                disableGreenGlow(p);
+            if(ileDobrac==1){
+                if(cards.get(index).isSimilar(onTable)||Objects.equals(onTable.getNumber(), "0")) {
+                    setGreenGlow(p);
+                }
+                else
+                    disableGreenGlow(p);
+            }
+            else{
+                if(isBitewna(cards.get(index)))
+                    setGreenGlow(p);
+                else
+                    disableGreenGlow(p);
+            }
+
         }
+    }
+
+    boolean isBitewna(Card card){
+        if(Objects.equals(card.getNumber(), "2")||Objects.equals(card.getNumber(), "3"))
+            return true;
+
+        if(Objects.equals(card.getNumber(), "13")&&Objects.equals(card.getSymbol(), "s"))
+            return true;
+
+        if(Objects.equals(card.getNumber(), "13")&&Objects.equals(card.getSymbol(), "w"))
+            return true;
+
+        return false;
     }
 
     void disableGreenGlow(Button card){
@@ -814,6 +849,9 @@ public class IngameController extends HelloApplication{
         dropShadow.setSpread(0.45);
         card.setEffect(dropShadow);
     }
+
+    //    ObservableList<String> figury = FXCollections.observableArrayList("Kier","Karo","Pik","Trefl");
+    //    ObservableList<String> numery = FXCollections.observableArrayList("5","6","7","8","9","10");
 
     void cardsStart(){ //dodac krole itd
         p11.setVisible(false);

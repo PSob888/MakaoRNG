@@ -55,7 +55,17 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Button fx:id="p1info" mnemonicParsing="false" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
+            <Text fx:id="p1wym" fill="WHITE" layoutX="74.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość kart do dobrania:">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="p1wymagania" fill="WHITE" layoutX="283.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="p1info" mnemonicParsing="false" onAction="#onPytanie1Click" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
                <font>
                   <Font name="Consolas Bold" size="39.0" />
                </font>
@@ -150,6 +160,59 @@
                </children>
             </AnchorPane>
             <AnchorPane fx:id="p1invisible" layoutX="1.0" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
+            <AnchorPane fx:id="p1jakGrac" layoutX="241.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onPytanie1Off" prefHeight="280.0" prefWidth="320.0" style="-fx-background-color: #003615;" visible="false">
+               <children>
+                  <Text fill="WHITE" layoutX="134.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jak grać">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="18.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Celem gry jest pozbycie się wszystkich kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Na planszę można kłaść tylko karty o tej">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="74.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="samej figurze lub wartości">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="107.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Karty specjalne:">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2: +2 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3: +3 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="70.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Król wino/czerwień: +5 kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="53.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dama: niwelacja dodatkowych kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Button mnemonicParsing="false" onAction="#onPytanie1Off" opacity="0.0" prefHeight="280.0" prefWidth="320.0" text="Button" />
+               </children>
+               <effect>
+                  <DropShadow height="100.0" radius="49.5" spread="0.1" width="100.0" />
+               </effect>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="player2" layoutX="800.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css" AnchorPane.rightAnchor="0.0">
@@ -196,7 +259,17 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Button fx:id="p2info" mnemonicParsing="false" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
+            <Text fx:id="p1wym1" fill="WHITE" layoutX="84.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość kart do dobrania:">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="p2wymagania" fill="WHITE" layoutX="293.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="p2info" mnemonicParsing="false" onAction="#onPytanie2Click" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
                <font>
                   <Font name="Consolas Bold" size="39.0" />
                </font>
@@ -304,6 +377,59 @@
                   <Font name="Consolas" size="60.0" />
                </font>
             </Text>
+            <AnchorPane fx:id="p2jakGrac" layoutX="240.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onPytanie2Off" prefHeight="280.0" prefWidth="320.0" style="-fx-background-color: #003615;" visible="false">
+               <children>
+                  <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#onPytanie1Off" opacity="0.0" prefHeight="280.0" prefWidth="320.0" text="Button" />
+                  <Text fill="WHITE" layoutX="134.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jak grać">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="18.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Celem gry jest pozbycie się wszystkich kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Na planszę można kłaść tylko karty o tej">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="74.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="samej figurze lub wartości">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="107.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Karty specjalne:">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2: +2 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3: +3 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="70.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Król wino/czerwień: +5 kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="53.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dama: niwelacja dodatkowych kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow height="100.0" radius="49.5" spread="0.1" width="100.0" />
+               </effect>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

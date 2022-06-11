@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -44,11 +45,6 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0" onMouseClicked="#cheatCode">
-               <image>
-                  <Image url="@Karty/640px-Windows_Settings_app_icon.png" />
-               </image>
-            </ImageView>
             <Text fill="WHITE" layoutX="453.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość Kart: ">
                <font>
                   <Font name="Consolas" size="16.0" />
@@ -59,7 +55,17 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Button fx:id="p1info" mnemonicParsing="false" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
+            <Text fx:id="p1wym" fill="WHITE" layoutX="74.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość kart do dobrania:">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="p1wymagania" fill="WHITE" layoutX="283.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="p1info" mnemonicParsing="false" onAction="#onPytanie1Click" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
                <font>
                   <Font name="Consolas Bold" size="39.0" />
                </font>
@@ -128,7 +134,85 @@
                <effect>
                   <DropShadow />
                </effect></Button>
+            <Button fx:id="cheat" layoutX="717.0" layoutY="3.0" mnemonicParsing="false" onAction="#cheatCode" prefHeight="60.0" prefWidth="79.0" style="-fx-background-color: #005221;" />
+            <AnchorPane fx:id="p1WyborBlokada" prefHeight="500.0" prefWidth="800.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="74.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #003615;">
+                     <children>
+                        <ChoiceBox fx:id="p1wyborStatusBox" layoutX="25.0" layoutY="25.0" prefWidth="150.0" styleClass="listarozwijana" stylesheets="@style.css">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ChoiceBox>
+                        <Button fx:id="p1okClickWybor" layoutX="85.0" layoutY="64.0" mnemonicParsing="false" onAction="#onClickWyborButtonP1" styleClass="clickablebtn2" stylesheets="@style.css" text="OK" textFill="WHITE">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="p1invisible" layoutX="1.0" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
+            <AnchorPane fx:id="p1jakGrac" layoutX="241.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onPytanie1Off" prefHeight="280.0" prefWidth="320.0" style="-fx-background-color: #003615;" visible="false">
+               <children>
+                  <Text fill="WHITE" layoutX="134.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jak grać">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="18.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Celem gry jest pozbycie się wszystkich kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Na planszę można kłaść tylko karty o tej">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="74.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="samej figurze lub wartości">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="107.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Karty specjalne:">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2: +2 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3: +3 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="70.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Król wino/czerwień: +5 kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="53.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dama: niwelacja dodatkowych kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Button mnemonicParsing="false" onAction="#onPytanie1Off" opacity="0.0" prefHeight="280.0" prefWidth="320.0" text="Button" />
+               </children>
+               <effect>
+                  <DropShadow height="100.0" radius="49.5" spread="0.1" width="100.0" />
+               </effect>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="player2" layoutX="800.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #005221;" stylesheets="@style.css" AnchorPane.rightAnchor="0.0">
@@ -165,11 +249,6 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0">
-               <image>
-                  <Image url="@Karty/640px-Windows_Settings_app_icon.png" />
-               </image>
-            </ImageView>
             <Text fill="WHITE" layoutX="453.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość Kart: ">
                <font>
                   <Font name="Consolas" size="16.0" />
@@ -180,7 +259,17 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Button fx:id="p2info" mnemonicParsing="false" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
+            <Text fx:id="p1wym1" fill="WHITE" layoutX="84.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość kart do dobrania:">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="p2wymagania" fill="WHITE" layoutX="293.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="p2info" mnemonicParsing="false" onAction="#onPytanie2Click" style="-fx-background-color: #005221;" text="?" textFill="WHITE">
                <font>
                   <Font name="Consolas Bold" size="39.0" />
                </font>
@@ -248,7 +337,32 @@
             <Button id="p216" fx:id="p216" layoutX="662.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect></Button>
+               </effect>
+            </Button>
+            <AnchorPane fx:id="p2WyborBlokada" prefHeight="500.0" prefWidth="800.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="74.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #003615;">
+                     <children>
+                        <ChoiceBox fx:id="p2wyborStatusBox" layoutX="25.0" layoutY="25.0" prefWidth="150.0" styleClass="listarozwijana" stylesheets="@style.css">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ChoiceBox>
+                        <Button fx:id="p2okClickWybor" layoutX="85.0" layoutY="64.0" mnemonicParsing="false" styleClass="clickablebtn2" stylesheets="@style.css" text="OK" textFill="WHITE">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="p2invisible" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
             <Button id="menu" fx:id="menu" layoutX="-94.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#onMenuClick" opacity="0.0" styleClass="clickablebtn2" stylesheets="@style.css" text="Wyjdź do menu" textFill="WHITE" visible="false">
                <font>
@@ -263,6 +377,59 @@
                   <Font name="Consolas" size="60.0" />
                </font>
             </Text>
+            <AnchorPane fx:id="p2jakGrac" layoutX="240.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onPytanie2Off" prefHeight="280.0" prefWidth="320.0" style="-fx-background-color: #003615;" visible="false">
+               <children>
+                  <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#onPytanie1Off" opacity="0.0" prefHeight="280.0" prefWidth="320.0" text="Button" />
+                  <Text fill="WHITE" layoutX="134.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jak grać">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="18.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Celem gry jest pozbycie się wszystkich kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="28.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Na planszę można kłaść tylko karty o tej">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="74.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="samej figurze lub wartości">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="107.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Karty specjalne:">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2: +2 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="123.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3: +3 karty">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="70.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Król wino/czerwień: +5 kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="53.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dama: niwelacja dodatkowych kart">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow height="100.0" radius="49.5" spread="0.1" width="100.0" />
+               </effect>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
