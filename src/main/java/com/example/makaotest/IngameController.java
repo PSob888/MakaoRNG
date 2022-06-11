@@ -1,6 +1,8 @@
 package com.example.makaotest;
 
 import javafx.animation.FadeTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.BlurType;
@@ -115,6 +118,20 @@ public class IngameController extends HelloApplication{
     private Button p2dobierz;
     @FXML
     private Button menu;
+    @FXML
+    private ChoiceBox p1wyborStatusBox;
+    @FXML
+    private ChoiceBox p2wyborStatusBox;
+    ObservableList<String> figury = FXCollections.observableArrayList("Kier","Karo","Pik","Trefl");
+    ObservableList<String> numery = FXCollections.observableArrayList("5","6","7","8","9","10");
+    @FXML
+    private Button p1okClickWybor;
+    @FXML
+    private Button p2okClickWybor;
+    @FXML
+    private AnchorPane p1WyborBlokada;
+    @FXML
+    private AnchorPane p2WyborBlokada;
 
     @FXML
     protected void initialize() throws FileNotFoundException {
@@ -253,6 +270,7 @@ public class IngameController extends HelloApplication{
     private void onClickCardP1Fucntion(Button card, Button p, int amt) throws FileNotFoundException {
         //sprawdzanie i inne gowna
         if(cardsP1.size()>=amt&&card.equals(p)&&(cardsP1.get(amt-1).isSimilar(onTable)||Objects.equals(onTable.getNumber(), "0"))){
+            Card karta=cardsP1.get(amt-1);
             String symbol=cardsP1.get(amt-1).getSymbol();
             String number=cardsP1.get(amt-1).getNumber();
             String s=new String("karty/"+number+symbol+".png");
@@ -278,9 +296,128 @@ public class IngameController extends HelloApplication{
                 //update ilosci kart
                 cardsAmountUpdate();
                 //animacja
+                if(specialCardsDetectorP1(karta))
+                    return;
                 animationFromP1ToP2();
             }
         }
+    }
+
+    //1. 2,3,król czerw. król wino
+    //3. 4
+    //5. Królowa - usuniecie kart do dodania i 4
+    //4. As - zmiana koloru
+    //5. Jopek - Żądanie karty
+    private boolean specialCardsDetectorP1(Card card)
+    {
+        ileDobrac+=specialCardsDobranie(card);
+
+        p2ileStoi=p1ileStoi+specialCardsCzekanie(card);
+        if(specialCardsCzekanie(card)==1)
+            p1ileStoi=0;
+
+        if(specialCardsKrolowa(card)){
+            ileDobrac=0;
+            p1ileStoi=0;
+        }
+
+        if(specialCardsAs(card)){
+            //dopisac asa
+            p1wyborStatusBox.setItems(figury);
+            p1wyborStatusBox.setValue("Kier");
+            p1WyborBlokada.setVisible(true);
+            return true;
+        }
+
+        if(specialCardsJopek(card)){
+            //dopisac jopka
+            p1wyborStatusBox.setItems(numery);
+            p1wyborStatusBox.setValue("5");
+            p1WyborBlokada.setVisible(true);
+            return true;
+        }
+        return false;
+    }
+//    ObservableList<String> figury = FXCollections.observableArrayList("Kier","Karo","Pik","Trefl");
+    @FXML
+    protected void onClickWyborButtonP1(ActionEvent e){
+        String wybor= (String) p1wyborStatusBox.getValue();
+        if(Objects.equals(wybor, "Kier")){
+            currentColorek=wybor;
+            ileTurColorek=2;
+        }
+        if(Objects.equals(wybor, "Karo")){
+            currentColorek=wybor;
+            ileTurColorek=2;
+        }
+        if(Objects.equals(wybor, "Pik")){
+            currentColorek=wybor;
+            ileTurColorek=2;
+        }
+        if(Objects.equals(wybor, "Trefl")){
+            currentColorek=wybor;
+            ileTurColorek=2;
+        }
+
+        if(Objects.equals(wybor, "5")){
+            currentNumerek=wybor;
+            ileTurNumerek=2;
+        }
+        if(Objects.equals(wybor, "6")){
+            currentNumerek=wybor;
+            ileTurNumerek=2;
+        }
+        if(Objects.equals(wybor, "7")){
+            currentNumerek=wybor;
+            ileTurNumerek=2;
+        }
+        if(Objects.equals(wybor, "8")){
+            currentNumerek=wybor;
+            ileTurNumerek=2;
+        }
+        if(Objects.equals(wybor, "9")){
+            currentNumerek=wybor;
+            ileTurNumerek=2;
+        }
+        if(Objects.equals(wybor, "10")){
+            currentNumerek=wybor;
+            ileTurNumerek=2;
+        }
+    }
+
+    private int specialCardsDobranie(Card card){
+        int amount=0;
+
+        if(Objects.equals(card.getNumber(), "2")) //dwójki
+            amount+=2;
+        if(Objects.equals(card.getNumber(), "3")) //trójki
+            amount+=3;
+        if(Objects.equals(card.getNumber(), "13")&&(Objects.equals(card.getSymbol(), "s")||Objects.equals(card.getSymbol(), "w")))
+            amount+=5;//króle czerwo i wino
+
+        return amount;
+    }
+
+    private int specialCardsCzekanie(Card card){ //dodawanie czekania
+        int amount=0;
+
+        if(Objects.equals(card.getNumber(), "4"))
+            amount++;
+
+        return amount;
+    }
+
+    private boolean specialCardsKrolowa(Card card) //sprawdzanie czy jest krolowa
+    {
+        return Objects.equals(card.getSymbol(), "12");
+    }
+
+    private boolean specialCardsAs(Card card){ //sprawdzanie czy jest as
+        return Objects.equals(card.getSymbol(), "14");
+    }
+
+    private boolean specialCardsJopek(Card card){ //sprawdzanie czy jest jopek
+        return Objects.equals(card.getSymbol(), "11");
     }
 
     void winnerAnimationP1()

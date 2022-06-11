@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -43,11 +44,6 @@
                <effect>
                   <DropShadow />
                </effect>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0" onMouseClicked="#cheatCode">
-               <image>
-                  <Image url="@Karty/640px-Windows_Settings_app_icon.png" />
-               </image>
             </ImageView>
             <Text fill="WHITE" layoutX="453.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość Kart: ">
                <font>
@@ -128,6 +124,31 @@
                <effect>
                   <DropShadow />
                </effect></Button>
+            <Button fx:id="cheat" layoutX="717.0" layoutY="3.0" mnemonicParsing="false" onAction="#cheatCode" prefHeight="60.0" prefWidth="79.0" style="-fx-background-color: #005221;" />
+            <AnchorPane fx:id="p1WyborBlokada" prefHeight="500.0" prefWidth="800.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="74.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #003615;">
+                     <children>
+                        <ChoiceBox fx:id="p1wyborStatusBox" layoutX="25.0" layoutY="25.0" prefWidth="150.0" styleClass="listarozwijana" stylesheets="@style.css">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ChoiceBox>
+                        <Button fx:id="p1okClickWybor" layoutX="85.0" layoutY="64.0" mnemonicParsing="false" onAction="#onClickWyborButtonP1" styleClass="clickablebtn2" stylesheets="@style.css" text="OK" textFill="WHITE">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="p1invisible" layoutX="1.0" layoutY="-3.0" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
          </children>
       </AnchorPane>
@@ -164,11 +185,6 @@
                <effect>
                   <DropShadow />
                </effect>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0">
-               <image>
-                  <Image url="@Karty/640px-Windows_Settings_app_icon.png" />
-               </image>
             </ImageView>
             <Text fill="WHITE" layoutX="453.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość Kart: ">
                <font>
@@ -248,7 +264,32 @@
             <Button id="p216" fx:id="p216" layoutX="662.0" layoutY="375.0" mnemonicParsing="false" onAction="#onClickCardP2" prefHeight="111.0" prefWidth="79.0" styleClass="karta">
                <effect>
                   <DropShadow />
-               </effect></Button>
+               </effect>
+            </Button>
+            <AnchorPane fx:id="p2WyborBlokada" prefHeight="500.0" prefWidth="800.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="74.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #003615;">
+                     <children>
+                        <ChoiceBox fx:id="p2wyborStatusBox" layoutX="25.0" layoutY="25.0" prefWidth="150.0" styleClass="listarozwijana" stylesheets="@style.css">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ChoiceBox>
+                        <Button fx:id="p2okClickWybor" layoutX="85.0" layoutY="64.0" mnemonicParsing="false" styleClass="clickablebtn2" stylesheets="@style.css" text="OK" textFill="WHITE">
+                           <font>
+                              <Font name="Consolas" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="p2invisible" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
             <Button id="menu" fx:id="menu" layoutX="-94.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#onMenuClick" opacity="0.0" styleClass="clickablebtn2" stylesheets="@style.css" text="Wyjdź do menu" textFill="WHITE" visible="false">
                <font>

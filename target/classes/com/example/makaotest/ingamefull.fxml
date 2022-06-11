@@ -28,10 +28,13 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <Button fx:id="p1dobierz" layoutX="686.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#onDobierz1Click" text="Dobierz">
+            <Button fx:id="p1dobierz" layoutX="683.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#onDobierz1Click" styleClass="clickablebtn" stylesheets="@style.css" text="Dobierz" textFill="WHITE">
                <effect>
                   <DropShadow />
                </effect>
+               <font>
+                  <Font name="Consolas" size="12.0" />
+               </font>
             </Button>
             <ImageView fx:id="polozona1" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0" styleClass="srodek">
                <image>
@@ -41,7 +44,7 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0">
+            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="732.0" layoutY="14.0" onMouseClicked="#cheatCode">
                <image>
                   <Image url="@Karty/640px-Windows_Settings_app_icon.png" />
                </image>
@@ -146,10 +149,13 @@
                   <DropShadow />
                </effect>
             </ImageView>
-            <Button fx:id="p2Dobierz" layoutX="686.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#onDobierz2Click" text="Dobierz">
+            <Button fx:id="p2Dobierz" layoutX="683.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#onDobierz2Click" styleClass="clickablebtn" stylesheets="@style.css" text="Dobierz" textFill="WHITE">
                <effect>
                   <DropShadow />
                </effect>
+               <font>
+                  <Font name="Consolas" size="12.0" />
+               </font>
             </Button>
             <ImageView fx:id="polozona2" fitHeight="111.0" fitWidth="79.0" layoutX="361.0" layoutY="195.0" rotate="30.0" styleClass="srodek">
                <image>
@@ -244,7 +250,15 @@
                   <DropShadow />
                </effect></Button>
             <AnchorPane fx:id="p2invisible" prefHeight="506.0" prefWidth="800.0" style="-fx-background-color: #003615;" visible="false" />
-            <Text fx:id="zmianagracza" fill="WHITE" layoutX="-214.0" layoutY="281.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zmiana gracza" visible="false">
+            <Button id="menu" fx:id="menu" layoutX="-94.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#onMenuClick" opacity="0.0" styleClass="clickablebtn2" stylesheets="@style.css" text="Wyjdź do menu" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="Consolas" size="22.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Text fx:id="zmianagracza" fill="WHITE" layoutX="-214.0" layoutY="270.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zmiana gracza" visible="false">
                <font>
                   <Font name="Consolas" size="60.0" />
                </font>

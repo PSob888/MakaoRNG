@@ -23,6 +23,11 @@ public class HelloApplication extends Application {
 
     public Card onTable = new Card("0","0");
 
+    public String currentNumerek = "0";
+    public int ileTurNumerek=0;
+    public String currentColorek = "0";
+    public int ileTurColorek=0;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("startmenu.fxml"));
